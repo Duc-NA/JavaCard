@@ -1,0 +1,8 @@
+<JavaCardProject name="Project">
+<USER>
+<PKG name="AuthenticationPin" aid="11 22 33 44 55" major="1" minor="0">
+<APPLET aid="11 22 33 44 55 00" instanceaid="" parameter="" authority="" privileges="" index="984" name="AuthenticationPin"/>
+</PKG>
+<Libs/>
+</USER>
+</JavaCardProject>
