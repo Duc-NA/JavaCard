@@ -1,0 +1,5 @@
+
+- authentication package:
+	+ P_AID: 61 75 74 68 65 6e = authen
+	+ PinApplet:
+		_ AID: 61 75 74 68 65 6e 2f 70 69 6e = authen/pin

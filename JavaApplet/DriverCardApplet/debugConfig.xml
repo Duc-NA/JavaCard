@@ -1,0 +1,11 @@
+<JavaCardProject name="DriverCardApplet">
+<USER>
+<PKG name="authentication" aid="61 75 74 68 65 6E" major="1" minor="0">
+<APPLET aid="61 75 74 68 65 6E 2F 70 69 6E" instanceaid="" parameter="" authority="" privileges="" index="19576" name="PinApplet"/>
+</PKG>
+<Libs/>
+</USER>
+<DebugInfo>
+<Protocol name="T01"/>
+</DebugInfo>
+</JavaCardProject>
