@@ -5,11 +5,8 @@
  */
 package drivercardhostapp;
 
-import drivercardhostapp.commons.ISO7816;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
+import drivercardhostapp.commons.constants.APPLET_CONSTANTS;
+import drivercardhostapp.commons.constants.ISO7816;
 import java.util.List;
 import javax.smartcardio.ATR;
 import javax.smartcardio.Card;
@@ -19,17 +16,13 @@ import javax.smartcardio.CommandAPDU;
 import javax.smartcardio.ResponseAPDU;
 import javax.smartcardio.TerminalFactory;
 import javax.swing.JOptionPane;
+import javax.smartcardio.CardException;
 
 /**
  *
  * @author Admin
  */
 public class DriverCardHostApp {
-
-    private static final byte[] AID_APPLET = {
-        (byte)0x61, (byte)0x75, (byte)0x74, (byte)0x68, (byte)0x65, 
-        (byte)0x6e, (byte)0x2f, (byte)0x70, (byte)0x69, (byte)0x6e
-    };
     private Card card;
     private TerminalFactory factory;
     private CardChannel channel;
@@ -49,19 +42,26 @@ public class DriverCardHostApp {
             ATR atr = card.getATR();
             byte[] baAtr = atr.getBytes();
 
-            System.out.println("ATR = 0x");
+            System.out.print("ATR = ");
             for(int i = 0; i < baAtr.length; i++ ){
                 System.out.printf("%02X ",baAtr[i]);
             }
 
        
             channel = card.getBasicChannel();
+            
             if(channel == null){
                 return false;
             }
          
-            response = channel.transmit(new CommandAPDU(0x00, (byte)0xA4, 0x04, 0x00, AID_APPLET));
+            response = channel.transmit(new CommandAPDU(
+                    0x00, (byte)0xA4, 
+                    0x04, 0x00, 
+                    APPLET_CONSTANTS.AID_AUTH_APPLET)
+            );
+          
             String check = Integer.toHexString(response.getSW());
+            
             if(check.equals(ISO7816.SW_NO_ERROR)){
                 byte[] baCardUid = response.getData();
 
@@ -70,8 +70,7 @@ public class DriverCardHostApp {
                     System.out.printf("%02X ", baCardUid [i]);
                 }
                 return true;
-            }
-            else if(check.equals(ISO7816.SW_DISABLED)){
+            }else if(check.equals(ISO7816.SW_DISABLED)){
                 JOptionPane.showMessageDialog(null, "Thẻ bị vô hiệu hóa");
                 return true;
             }
@@ -92,5 +91,15 @@ public class DriverCardHostApp {
             System.out.println("Lỗi: "+e.toString());
         }
         return false;
+    }
+    
+    public ResponseAPDU sendAPDU(
+            int cla, int ins, int p1, int p2, byte[] data 
+    ) throws CardException{
+        if(channel== null){
+            throw new CardException(ISO7816.SW_UNKNOWN);
+        }
+        return channel.transmit(new CommandAPDU(
+        cla, ins, p1, p2, data));
     }
 }

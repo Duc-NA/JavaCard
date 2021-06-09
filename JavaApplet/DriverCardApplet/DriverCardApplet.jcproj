@@ -2,7 +2,8 @@
 <USER>
 <PKG name="authentication" aid="61 75 74 68 65 6E" major="1" minor="0">
 <APPLET aid="61 75 74 68 65 6E 2F 70 69 6E" instanceaid="" parameter="" authority="" privileges="" index="-6424" name="PinApplet"/>
-<CLASS name="COMMON"/>
+<CLASS name="APPLET_CONSTANTS"/>
+<CLASS name="AUTH_CONSTANTS"/>
 </PKG>
 <Libs/>
 </USER>
