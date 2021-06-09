@@ -4,10 +4,5 @@
 <Node>AuthenticationPin</Node>
 </PkgNodes>
 </ExpandNodes>
-<FileNodes>
-<ActiveFile>
-<fileName>src\AuthenticationPin\AuthenticationPin.java</fileName>
-<line>5</line>
-</ActiveFile>
-</FileNodes>
+<FileNodes/>
 </StateInfo>

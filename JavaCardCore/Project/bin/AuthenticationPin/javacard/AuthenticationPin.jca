@@ -1,66 +1,881 @@
 // converted by version 1.3
-// on Wed May 26 20:37:11 ICT 2021
+// on Tue Jun 08 15:13:38 ICT 2021
 
 .package AuthenticationPin {
 	.aid 0x11:0x22:0x33:0x44:0x55;
 	.version 1.0;
 
 	.imports {
-		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.3;		//javacard/framework
-		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.2;		//javacard/framework
 	}
 
 	.applet {
 		0x11:0x22:0x33:0x44:0x55:0x0 AuthenticationPin;
+		0x11:0x22:0x33:0x44:0x55:0x1 Infomation;
 	}
 
 	.constantPool {
 		// 0
-		instanceFieldRef byte AuthenticationPin/x;
+		instanceFieldRef boolean AuthenticationPin/setupDone;
 		// 1
-		classRef AuthenticationPin;
+		instanceFieldRef 0.9[] AuthenticationPin/ublk_pins;
 		// 2
-		staticMethodRef AuthenticationPin/<init>()V;
+		instanceFieldRef 0.9[] AuthenticationPin/pins;
 		// 3
-		virtualMethodRef 0.3.2([BSB)V;		// register([BSB)V
+		instanceFieldRef short AuthenticationPin/logged_ids;
 		// 4
-		staticFieldRef byte[] AuthenticationPin/buffer;
+		instanceFieldRef byte Infomation/balance;
 		// 5
-		staticMethodRef 0.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		instanceFieldRef short Infomation/countht;
 		// 6
-		staticFieldRef byte[] AuthenticationPin/buffer1;
+		instanceFieldRef short Infomation/countns;
 		// 7
-		staticFieldRef byte[] AuthenticationPin/buffer2;
+		instanceFieldRef short Infomation/countcmnd;
 		// 8
-		virtualMethodRef 0.3.3()Z;		// selectingApplet()Z
+		instanceFieldRef short Infomation/countgplx;
 		// 9
-		virtualMethodRef 0.10.1()[B;		// getBuffer()[B
+		instanceFieldRef short Infomation/countvehicle;
 		// 10
-		virtualMethodRef 0.10.6()S;		// setIncomingAndReceive()S
+		virtualMethodRef 0.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
 		// 11
-		virtualMethodRef 0.10.7()S;		// setOutgoing()S
+		virtualMethodRef 0.3.1()V;		// javacard/framework/Applet.register()V
 		// 12
-		virtualMethodRef 0.10.9(S)V;		// setOutgoingLength(S)V
+		classRef AuthenticationPin;
 		// 13
-		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		staticMethodRef AuthenticationPin/<init>([BSB)V;
 		// 14
-		virtualMethodRef 0.10.4(SS)V;		// sendBytes(SS)V
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
 		// 15
-		virtualMethodRef 0.10.5([BSS)V;		// sendBytesLong([BSS)V
+		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
 		// 16
+		staticMethodRef AuthenticationPin/setup(Ljavacard/framework/APDU;[B)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 17
+		staticMethodRef AuthenticationPin/CreatePIN(Ljavacard/framework/APDU;[B)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 18
+		staticMethodRef AuthenticationPin/VerifyPIN(Ljavacard/framework/APDU;[B)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 19
+		staticMethodRef AuthenticationPin/ChangePIN(Ljavacard/framework/APDU;[B)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 20
+		staticMethodRef AuthenticationPin/UnblockPIN(Ljavacard/framework/APDU;[B)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 21
+		staticMethodRef AuthenticationPin/SetupInformation(Ljavacard/framework/APDU;[B)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 22
+		staticMethodRef 0.16.5(BB)S;		// javacard/framework/Util.makeShort(BB)S
+		// 23
+		virtualMethodRef 0.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 24
+		staticFieldRef byte[] AuthenticationPin/TEST_CHECK;
+		// 25
+		virtualMethodRef 0.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+		// 26
+		staticFieldRef byte[] AuthenticationPin/test;
+		// 27
+		virtualMethodRef 0.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		// 28
+		virtualMethodRef 0.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		// 29
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 30
+		virtualMethodRef 0.10.4(SS)V;		// javacard/framework/APDU.sendBytes(SS)V
+		// 31
+		virtualMethodRef 0.9.2()B;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+		// 32
+		staticMethodRef AuthenticationPin/LogoutIdentity(B)V;
+		// 33
+		staticFieldRef byte[] AuthenticationPin/PIN_INIT_VALUE;
+		// 34
+		virtualMethodRef 0.9.6()V;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+		// 35
+		virtualMethodRef 0.9.5()V;		// javacard/framework/OwnerPIN.reset()V
+		// 36
+		staticMethodRef AuthenticationPin/CheckPINPolicy([BSB)Z;
+		// 37
+		classRef Infomation;
+		// 38
+		staticMethodRef Infomation/<init>()V;
+		// 39
+		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 40
+		staticFieldRef byte[] Infomation/image;
+		// 41
+		staticFieldRef byte[] Infomation/size;
+		// 42
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 43
 		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 44
+		classRef 0.9;		// javacard/framework/OwnerPIN
+		// 45
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 46
+		staticMethodRef AuthenticationPin/LogOutAll()V;
+		// 47
+		staticMethodRef 0.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 48
+		staticFieldRef byte[] Infomation/arrayhoten;
+		// 49
+		staticFieldRef byte[] Infomation/arrayngaysinh;
+		// 50
+		staticFieldRef byte[] Infomation/arrayCMND;
+		// 51
+		staticFieldRef byte[] Infomation/arrayGPLX;
+		// 52
+		staticFieldRef byte[] Infomation/arrayvehicle;
+		// 53
+		virtualMethodRef 0.10.8(SS)V;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+		// 54
+		virtualMethodRef 0.10.5([BSS)V;		// javacard/framework/APDU.sendBytesLong([BSS)V
 	}
 
 	.class public AuthenticationPin 0 extends 0.3 {		// extends javacard/framework/Applet
 
 		.fields {
-			private byte x 0;		// B
-			public static final byte CLEAR_ON_DESELECT = 2;		// B
-			private static byte[] buffer;		// [B
-			private static byte[] buffer1;		// [B
-			private static byte[] buffer2;		// [B
-			static final byte INS_SEND = 0;		// B
-			static final byte INS_UPDATE = 1;		// B
+			private 0.9[] pins 0;		// [Ljavacard/framework/OwnerPIN;
+			private 0.9[] ublk_pins 1;		// [Ljavacard/framework/OwnerPIN;
+			private boolean setupDone 2;		// Z
+			private short logged_ids 3;		// S
+			static final byte project9_CLA = -80;		// B
+			private static final byte[] test = {0,0,0,0,0,0,0,0};		// [B
+			private static final byte[] TEST_CHECK = {1,1,1,1};		// [B
+			private static final byte PIN_MIN_SIZE = 4;		// B
+			private static final byte PIN_MAX_SIZE = 16;		// B
+			private static final byte MAX_NUM_PINS = 8;		// B
+			private static final byte[] PIN_INIT_VALUE = {97,110,104,100,117,99};		// [B
+			private static final byte INS_CREATE_PIN = 64;		// B
+			private static final byte INS_VERIFY_PIN = 66;		// B
+			private static final byte INS_CHANGE_PIN = 68;		// B
+			private static final byte INS_UNBLOCK_PIN = 70;		// B
+			private static final byte INS_CREATE_INFORMATION = 80;		// B
+			private static final byte INS_LOGOUT_ALL = 96;		// B
+			private static final byte INS_SETUP = 42;		// B
+			private static final short SW_INVALID_PARAMETER = -25585;		// S
+			private static final short SW_IDENTITY_BLOCKED = -25588;		// S
+			private static final short SW_AUTH_FAILED = -25598;		// S
+			private static final short SW_OPERATION_NOT_ALLOWED = -25597;		// S
+			private static final short SW_INTERNAL_ERROR = -25345;		// S
+			private static final short SW_SETUP_NOT_DONE = -25596;		// S
+			private static final short SW_INCORRECT_P1 = -25584;		// S
+			private static final short SW_INCORRECT_P2 = -25583;		// S
+		}
+
+		.publicMethodTable 4 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public select()Z 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 46;		// AuthenticationPin/AuthenticationPin.LogOutAll()V
+					sconst_1;
+					sreturn;
+		}
+
+		.method public deselect()V 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 46;		// AuthenticationPin/AuthenticationPin.LogOutAll()V
+					return;
+		}
+
+		.method private <init>([BSB)V {
+			.stack 6;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 45;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					sconst_0;
+					putfield_b 0;		// boolean AuthenticationPin/AuthenticationPin.setupDone
+					aload_0;
+					getstatic_a 33;		// reference AuthenticationPin/AuthenticationPin.PIN_INIT_VALUE
+					sconst_0;
+					getstatic_a 33;		// reference AuthenticationPin/AuthenticationPin.PIN_INIT_VALUE
+					arraylength;
+					s2b;
+					invokespecial 36;		// AuthenticationPin/AuthenticationPin.CheckPINPolicy([BSB)Z
+					ifne L2;
+				L1:	sspush -25345;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_0;
+					bspush 8;
+					anewarray 44;		// javacard/framework/OwnerPIN
+					putfield_a 1;		// reference AuthenticationPin/AuthenticationPin.ublk_pins
+					aload_0;
+					bspush 8;
+					anewarray 44;		// javacard/framework/OwnerPIN
+					putfield_a 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sconst_0;
+					new 44;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					getstatic_a 33;		// reference AuthenticationPin/AuthenticationPin.PIN_INIT_VALUE
+					arraylength;
+					s2b;
+					invokespecial 47;		// javacard/framework/OwnerPIN.<init>(BB)V
+					aastore;
+					getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sconst_0;
+					aaload;
+					getstatic_a 33;		// reference AuthenticationPin/AuthenticationPin.PIN_INIT_VALUE
+					sconst_0;
+					getstatic_a 33;		// reference AuthenticationPin/AuthenticationPin.PIN_INIT_VALUE
+					arraylength;
+					s2b;
+					invokevirtual 10;		// javacard/framework/OwnerPIN.update([BSB)V
+					aload_0;
+					invokevirtual 11;		// javacard/framework/Applet.register()V
+					return;
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 1;
+
+				L0:	new 12;		// AuthenticationPin/AuthenticationPin
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 13;		// AuthenticationPin/AuthenticationPin.<init>([BSB)V
+					astore_3;
+				L1:	return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 14;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 15;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_0;
+					baload;
+					ifne L6;
+				L4:	aload_2;
+					sconst_1;
+					baload;
+					bspush -92;
+					if_scmpne L6;
+				L5:	return;
+				L6:	aload_2;
+					sconst_0;
+					baload;
+					bspush -80;
+					if_scmpeq L8;
+				L7:	sspush 28160;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_2;
+					sconst_1;
+					baload;
+					sstore_3;
+				L9:	getfield_b_this 0;		// boolean AuthenticationPin/AuthenticationPin.setupDone
+					ifne L12;
+				L10:	sload_3;
+					bspush 42;
+					if_scmpeq L12;
+				L11:	sspush -25596;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	getfield_b_this 0;		// boolean AuthenticationPin/AuthenticationPin.setupDone
+					ifeq L15;
+				L13:	sload_3;
+					bspush 42;
+					if_scmpne L15;
+				L14:	sspush 27904;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	sload_3;
+					slookupswitch L23 7 42 L16 64 L17 66 L18 68 L19 70 L20 80 L22 96 L21;
+				L16:	aload_0;
+					aload_1;
+					aload_2;
+					invokespecial 16;		// AuthenticationPin/AuthenticationPin.setup(Ljavacard/framework/APDU;[B)V
+					goto L24;
+				L17:	aload_0;
+					aload_1;
+					aload_2;
+					invokespecial 17;		// AuthenticationPin/AuthenticationPin.CreatePIN(Ljavacard/framework/APDU;[B)V
+					goto L24;
+				L18:	aload_0;
+					aload_1;
+					aload_2;
+					invokespecial 18;		// AuthenticationPin/AuthenticationPin.VerifyPIN(Ljavacard/framework/APDU;[B)V
+					goto L24;
+				L19:	aload_0;
+					aload_1;
+					aload_2;
+					invokespecial 19;		// AuthenticationPin/AuthenticationPin.ChangePIN(Ljavacard/framework/APDU;[B)V
+					goto L24;
+				L20:	aload_0;
+					aload_1;
+					aload_2;
+					invokespecial 20;		// AuthenticationPin/AuthenticationPin.UnblockPIN(Ljavacard/framework/APDU;[B)V
+					goto L24;
+				L21:	aload_0;
+					invokespecial 46;		// AuthenticationPin/AuthenticationPin.LogOutAll()V
+					goto L24;
+				L22:	aload_0;
+					aload_1;
+					aload_2;
+					invokespecial 21;		// AuthenticationPin/AuthenticationPin.SetupInformation(Ljavacard/framework/APDU;[B)V
+					goto L24;
+				L23:	sspush 27904;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L24:	return;
+		}
+
+		.method private setup(Ljavacard/framework/APDU;[B)V {
+			.stack 2;
+			.locals 0;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					sconst_1;
+					putfield_b 0;		// boolean AuthenticationPin/AuthenticationPin.setupDone
+					return;
+		}
+
+		.method private CreatePIN(Ljavacard/framework/APDU;[B)V {
+			.stack 6;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_2;
+					sconst_3;
+					baload;
+					sstore_3;
+				L1:	sconst_0;
+					aload_2;
+					sconst_4;
+					baload;
+					invokestatic 22;		// javacard/framework/Util.makeShort(BB)S
+					sstore 4;
+				L2:	aload_1;
+					invokevirtual 23;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sload 4;
+					if_scmpeq L4;
+				L3:	sspush 26368;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	sload 4;
+					sconst_5;
+					if_scmpge L6;
+				L5:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	aload_2;
+					sconst_5;
+					baload;
+					sstore 5;
+				L7:	sload 4;
+					sconst_1;
+					sload 5;
+					sadd;
+					if_scmpge L9;
+				L8:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	aload_0;
+					aload_2;
+					bspush 6;
+					sload 5;
+					invokespecial 36;		// AuthenticationPin/AuthenticationPin.CheckPINPolicy([BSB)Z
+					ifne L11;
+				L10:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sconst_0;
+					new 44;		// javacard/framework/OwnerPIN
+					dup;
+					sload_3;
+					bspush 16;
+					invokespecial 47;		// javacard/framework/OwnerPIN.<init>(BB)V
+					aastore;
+					getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sconst_0;
+					aaload;
+					aload_2;
+					bspush 6;
+					sload 5;
+					invokevirtual 10;		// javacard/framework/OwnerPIN.update([BSB)V
+					getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sconst_0;
+					aaload;
+					getstatic_a 24;		// reference AuthenticationPin/AuthenticationPin.TEST_CHECK
+					sconst_0;
+					getstatic_a 24;		// reference AuthenticationPin/AuthenticationPin.TEST_CHECK
+					arraylength;
+					s2b;
+					invokevirtual 25;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifeq L13;
+				L12:	getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					sconst_1;
+					sconst_2;
+					bastore;
+					goto L14;
+				L13:	getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					sconst_1;
+					sconst_3;
+					bastore;
+				L14:	aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					arraylength;
+					invokevirtual 28;		// javacard/framework/APDU.setOutgoingLength(S)V
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					arraylength;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					arraylength;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					return;
+		}
+
+		.method private VerifyPIN(Ljavacard/framework/APDU;[B)V {
+			.stack 4;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	sconst_0;
+					sstore_3;
+				L1:	sload_3;
+					iflt L3;
+				L2:	sload_3;
+					bspush 8;
+					if_scmplt L4;
+				L3:	sspush -25584;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sload_3;
+					aaload;
+					astore 4;
+				L5:	aload 4;
+					ifnonnull L7;
+				L6:	sspush -25584;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L7:	aload_2;
+					sconst_3;
+					baload;
+					ifeq L9;
+				L8:	sspush -25583;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	sconst_0;
+					aload_2;
+					sconst_4;
+					baload;
+					invokestatic 22;		// javacard/framework/Util.makeShort(BB)S
+					sstore 5;
+				L10:	sload 5;
+					aload_1;
+					invokevirtual 23;		// javacard/framework/APDU.setIncomingAndReceive()S
+					if_scmpeq L12;
+				L11:	sspush 26368;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	aload_0;
+					aload_2;
+					sconst_5;
+					sload 5;
+					s2b;
+					invokespecial 36;		// AuthenticationPin/AuthenticationPin.CheckPINPolicy([BSB)Z
+					ifne L14;
+				L13:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	aload 4;
+					invokevirtual 31;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+					ifne L16;
+				L15:	sspush -25588;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	aload 4;
+					aload_2;
+					sconst_5;
+					sload 5;
+					s2b;
+					invokevirtual 25;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L18;
+				L17:	aload_0;
+					sload_3;
+					invokespecial 32;		// AuthenticationPin/AuthenticationPin.LogoutIdentity(B)V
+					sspush -25598;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L18:	aload_0;
+					dup;
+					getfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					sconst_1;
+					sload_3;
+					sshl;
+					sor;
+					putfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					return;
+		}
+
+		.method private ChangePIN(Ljavacard/framework/APDU;[B)V {
+			.stack 5;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	sconst_0;
+					sstore_3;
+				L1:	sload_3;
+					iflt L3;
+				L2:	sload_3;
+					bspush 8;
+					if_scmplt L4;
+				L3:	sspush -25584;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sload_3;
+					aaload;
+					astore 4;
+				L5:	aload 4;
+					ifnonnull L7;
+				L6:	sspush -25584;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L7:	aload_2;
+					sconst_3;
+					baload;
+					ifeq L9;
+				L8:	sspush -25583;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	sconst_0;
+					aload_2;
+					sconst_4;
+					baload;
+					invokestatic 22;		// javacard/framework/Util.makeShort(BB)S
+					sstore 5;
+				L10:	aload_1;
+					invokevirtual 23;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sload 5;
+					if_scmpeq L12;
+				L11:	sspush 26368;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload 5;
+					sconst_4;
+					if_scmpge L14;
+				L13:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	aload_2;
+					sconst_5;
+					baload;
+					sstore 6;
+				L15:	sload 5;
+					sconst_1;
+					sload 6;
+					sadd;
+					if_scmpge L17;
+				L16:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L17:	aload_0;
+					aload_2;
+					bspush 6;
+					sload 6;
+					invokespecial 36;		// AuthenticationPin/AuthenticationPin.CheckPINPolicy([BSB)Z
+					ifne L19;
+				L18:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L19:	aload_2;
+					bspush 6;
+					sload 6;
+					sadd;
+					baload;
+					sstore 7;
+				L20:	sload 5;
+					sconst_1;
+					sload 6;
+					sadd;
+					sload 7;
+					sadd;
+					if_scmpge L22;
+				L21:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L22:	aload_0;
+					aload_2;
+					bspush 6;
+					sload 6;
+					sadd;
+					sconst_1;
+					sadd;
+					sload 7;
+					invokespecial 36;		// AuthenticationPin/AuthenticationPin.CheckPINPolicy([BSB)Z
+					ifne L24;
+				L23:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L24:	aload 4;
+					invokevirtual 31;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+					ifne L26;
+				L25:	sspush -25588;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L26:	aload 4;
+					aload_2;
+					bspush 6;
+					sload 6;
+					invokevirtual 25;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L28;
+				L27:	aload_0;
+					sload_3;
+					invokespecial 32;		// AuthenticationPin/AuthenticationPin.LogoutIdentity(B)V
+					sspush -25598;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L28:	aload 4;
+					aload_2;
+					bspush 6;
+					sload 6;
+					sadd;
+					sconst_1;
+					sadd;
+					sload 7;
+					invokevirtual 10;		// javacard/framework/OwnerPIN.update([BSB)V
+					getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sconst_0;
+					aaload;
+					getstatic_a 24;		// reference AuthenticationPin/AuthenticationPin.TEST_CHECK
+					sconst_0;
+					getstatic_a 24;		// reference AuthenticationPin/AuthenticationPin.TEST_CHECK
+					arraylength;
+					s2b;
+					invokevirtual 25;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifeq L30;
+				L29:	getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					sconst_1;
+					sconst_2;
+					bastore;
+					goto L31;
+				L30:	getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					sconst_1;
+					sconst_3;
+					bastore;
+				L31:	aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					arraylength;
+					invokevirtual 28;		// javacard/framework/APDU.setOutgoingLength(S)V
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					arraylength;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getstatic_a 26;		// reference AuthenticationPin/AuthenticationPin.test
+					arraylength;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_0;
+					dup;
+					getfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					sconst_m1;
+					sconst_1;
+					sload_3;
+					sshl;
+					sxor;
+					sand;
+					putfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					return;
+		}
+
+		.method private UnblockPIN(Ljavacard/framework/APDU;[B)V {
+			.stack 4;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	sconst_0;
+					sstore_3;
+				L1:	sload_3;
+					iflt L3;
+				L2:	sload_3;
+					bspush 8;
+					if_scmplt L4;
+				L3:	sspush -25584;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sload_3;
+					aaload;
+					astore 4;
+				L5:	aload 4;
+					ifnonnull L7;
+				L6:	sspush -25584;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L7:	aload 4;
+					invokevirtual 31;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+					ifeq L9;
+				L8:	sspush -25597;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	aload_2;
+					sconst_3;
+					baload;
+					ifeq L11;
+				L10:	sspush -25583;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	sconst_0;
+					aload_2;
+					sconst_4;
+					baload;
+					invokestatic 22;		// javacard/framework/Util.makeShort(BB)S
+					sstore 5;
+				L12:	sload 5;
+					aload_1;
+					invokevirtual 23;		// javacard/framework/APDU.setIncomingAndReceive()S
+					if_scmpeq L14;
+				L13:	sspush 26368;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	aload_0;
+					aload_2;
+					sconst_5;
+					sload 5;
+					s2b;
+					invokespecial 36;		// AuthenticationPin/AuthenticationPin.CheckPINPolicy([BSB)Z
+					ifne L16;
+				L15:	sspush -25585;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	aload 4;
+					invokevirtual 34;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+					return;
+		}
+
+		.method private SetupInformation(Ljavacard/framework/APDU;[B)V {
+			.stack 0;
+			.locals 0;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	return;
+		}
+
+		.method private CheckPINPolicy([BSB)Z {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_3;
+					sconst_4;
+					if_scmplt L2;
+				L1:	sload_3;
+					bspush 16;
+					if_scmple L3;
+				L2:	sconst_0;
+					sreturn;
+				L3:	sconst_1;
+					sreturn;
+		}
+
+		.method private LogOutAll()V {
+			.stack 2;
+			.locals 1;
+
+				L0:	aload_0;
+					sconst_0;
+					putfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					sconst_0;
+					sstore_1;
+				L1:	sload_1;
+					bspush 8;
+					if_scmpge L5;
+				L2:	getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sload_1;
+					aaload;
+					ifnull L4;
+				L3:	getfield_a_this 2;		// reference AuthenticationPin/AuthenticationPin.pins
+					sload_1;
+					aaload;
+					invokevirtual 35;		// javacard/framework/OwnerPIN.reset()V
+				L4:	sload_1;
+					sconst_1;
+					sadd;
+					s2b;
+					sstore_1;
+					goto L1;
+				L5:	return;
+		}
+
+		.method private LogoutIdentity(B)V {
+			.stack 4;
+			.locals 0;
+
+				L0:	aload_0;
+					dup;
+					getfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					sconst_1;
+					sload_1;
+					sshl;
+					sconst_m1;
+					sxor;
+					sand;
+					putfield_s 3;		// short AuthenticationPin/AuthenticationPin.logged_ids
+					return;
+		}
+
+	}
+
+	.class public Infomation 1 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			 byte balance 0;		// B
+			 short countht 1;		// S
+			 short countns 2;		// S
+			 short countcmnd 3;		// S
+			 short countgplx 4;		// S
+			 short countvehicle 5;		// S
+			static final byte Bot_CLA = -80;		// B
+			static final byte INS_THONGTIN = 0;		// B
+			static final byte INS_NAPANH = 1;		// B
+			static final byte INS_ANH = 2;		// B
+			static final byte INS_INSERT = 3;		// B
+			static final byte INS_COUNTINSERT = 4;		// B
+			static final byte INS_SETCOUNT = 5;		// B
+			static final byte INS_COUNTANH = 6;		// B
+			private static byte[] arrayhoten;		// [B
+			private static byte[] arrayngaysinh;		// [B
+			private static byte[] arrayCMND;		// [B
+			private static byte[] arrayGPLX;		// [B
+			private static byte[] arrayvehicle;		// [B
+			private static byte[] image;		// [B
+			private static byte[] size;		// [B
+			static final byte phi = 3;		// B
 		}
 
 		.publicMethodTable 7 {
@@ -78,11 +893,14 @@
 		}
 
 		.method public <init>()V 0 {
-			.stack 1;
+			.stack 2;
 			.locals 0;
 
 				L0:	aload_0;
-					invokespecial 13;		// javacard/framework/Applet.<init>()V
+					invokespecial 45;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					bspush 10;
+					putfield_b 4;		// byte AuthenticationPin/Infomation.balance
 					return;
 		}
 
@@ -90,9 +908,9 @@
 			.stack 5;
 			.locals 0;
 
-				L0:	new 1;		// AuthenticationPin/AuthenticationPin
+				L0:	new 37;		// AuthenticationPin/Infomation
 					dup;
-					invokespecial 2;		// AuthenticationPin/AuthenticationPin.<init>()V
+					invokespecial 38;		// AuthenticationPin/Infomation.<init>()V
 					aload_0;
 					sload_1;
 					sconst_1;
@@ -100,102 +918,398 @@
 					aload_0;
 					sload_1;
 					baload;
-					invokevirtual 3;		// register([BSB)V
-					sconst_2;
+					invokevirtual 39;		// javacard/framework/Applet.register([BSB)V
+					sspush 10000;
 					newarray 11;
-					putstatic_a 4;		// reference AuthenticationPin/AuthenticationPin.buffer
-					sconst_2;
-					sconst_2;
-					invokestatic 5;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
-					putstatic_a 6;		// reference AuthenticationPin/AuthenticationPin.buffer1
+					putstatic_a 40;		// reference AuthenticationPin/Infomation.image
+					bspush 7;
+					newarray 11;
+					putstatic_a 41;		// reference AuthenticationPin/Infomation.size
 					return;
 		}
 
 		.method public process(Ljavacard/framework/APDU;)V 7 {
-			.stack 4;
-			.locals 2;
+			.stack 5;
+			.locals 16;
 
 			.descriptor	Ljavacard/framework/APDU;	0.10;
 
-				L0:	sconst_2;
-					sconst_1;
-					invokestatic 5;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
-					putstatic_a 7;		// reference AuthenticationPin/AuthenticationPin.buffer2
-					aload_0;
-					invokevirtual 8;		// selectingApplet()Z
+				L0:	aload_0;
+					invokevirtual 42;		// javacard/framework/Applet.selectingApplet()Z
 					ifeq L2;
 				L1:	return;
 				L2:	aload_1;
-					invokevirtual 9;		// getBuffer()[B
+					invokevirtual 15;		// javacard/framework/APDU.getBuffer()[B
 					astore_2;
 				L3:	aload_1;
-					invokevirtual 10;		// setIncomingAndReceive()S
+					invokevirtual 23;		// javacard/framework/APDU.setIncomingAndReceive()S
 					pop;
 					aload_2;
 					sconst_1;
 					baload;
-					slookupswitch L7 2 0 L4 1 L6;
-				L4:	aload_1;
-					invokevirtual 11;		// setOutgoing()S
+					stableswitch L56 0 6 L41 L48 L53 L22 L4 L51 L52;
+				L4:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
 					sstore_3;
-				L5:	aload_1;
-					bspush 7;
-					invokevirtual 12;		// setOutgoingLength(S)V
+				L5:	sconst_1;
+					sstore 4;
+				L6:	aload_0;
+					sconst_0;
+					putfield_s 5;		// short AuthenticationPin/Infomation.countht
+					aload_0;
+					sconst_0;
+					putfield_s 6;		// short AuthenticationPin/Infomation.countns
+					aload_0;
+					sconst_0;
+					putfield_s 7;		// short AuthenticationPin/Infomation.countcmnd
+					aload_0;
+					sconst_0;
+					putfield_s 8;		// short AuthenticationPin/Infomation.countgplx
+					aload_0;
+					sconst_0;
+					putfield_s 9;		// short AuthenticationPin/Infomation.countvehicle
+					sconst_5;
+					sstore 5;
+				L7:	sload 5;
+					bspush 6;
+					sload_3;
+					sadd;
+					if_scmpge L21;
+				L8:	aload_2;
+					sload 5;
+					baload;
+					bspush 33;
+					if_scmpne L10;
+				L9:	sinc 4 1;
+					goto L20;
+				L10:	sload 4;
+					sconst_1;
+					if_scmpne L12;
+				L11:	aload_0;
+					dup;
+					getfield_s 5;		// short AuthenticationPin/Infomation.countht
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short AuthenticationPin/Infomation.countht
+					goto L20;
+				L12:	sload 4;
+					sconst_2;
+					if_scmpne L14;
+				L13:	aload_0;
+					dup;
+					getfield_s 6;		// short AuthenticationPin/Infomation.countns
+					sconst_1;
+					sadd;
+					putfield_s 6;		// short AuthenticationPin/Infomation.countns
+					goto L20;
+				L14:	sload 4;
+					sconst_3;
+					if_scmpne L16;
+				L15:	aload_0;
+					dup;
+					getfield_s 7;		// short AuthenticationPin/Infomation.countcmnd
+					sconst_1;
+					sadd;
+					putfield_s 7;		// short AuthenticationPin/Infomation.countcmnd
+					goto L20;
+				L16:	sload 4;
+					sconst_4;
+					if_scmpne L18;
+				L17:	aload_0;
+					dup;
+					getfield_s 8;		// short AuthenticationPin/Infomation.countgplx
+					sconst_1;
+					sadd;
+					putfield_s 8;		// short AuthenticationPin/Infomation.countgplx
+					goto L20;
+				L18:	sload 4;
+					sconst_5;
+					if_scmpne L20;
+				L19:	aload_0;
+					dup;
+					getfield_s 9;		// short AuthenticationPin/Infomation.countvehicle
+					sconst_1;
+					sadd;
+					putfield_s 9;		// short AuthenticationPin/Infomation.countvehicle
+				L20:	sinc 5 1;
+					goto L7;
+				L21:	aload_0;
+					dup;
+					getfield_s 5;		// short AuthenticationPin/Infomation.countht
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short AuthenticationPin/Infomation.countht
+					aload_0;
+					dup;
+					getfield_s 6;		// short AuthenticationPin/Infomation.countns
+					sconst_1;
+					sadd;
+					putfield_s 6;		// short AuthenticationPin/Infomation.countns
+					aload_0;
+					dup;
+					getfield_s 7;		// short AuthenticationPin/Infomation.countcmnd
+					sconst_1;
+					sadd;
+					putfield_s 7;		// short AuthenticationPin/Infomation.countcmnd
+					aload_0;
+					dup;
+					getfield_s 8;		// short AuthenticationPin/Infomation.countgplx
+					sconst_1;
+					sadd;
+					putfield_s 8;		// short AuthenticationPin/Infomation.countgplx
+					goto_w L57;
+				L22:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore 5;
+				L23:	sconst_1;
+					sstore 6;
+				L24:	getfield_s_this 5;		// short AuthenticationPin/Infomation.countht
+					newarray 11;
+					putstatic_a 48;		// reference AuthenticationPin/Infomation.arrayhoten
+					getfield_s_this 6;		// short AuthenticationPin/Infomation.countns
+					newarray 11;
+					putstatic_a 49;		// reference AuthenticationPin/Infomation.arrayngaysinh
+					getfield_s_this 7;		// short AuthenticationPin/Infomation.countcmnd
+					newarray 11;
+					putstatic_a 50;		// reference AuthenticationPin/Infomation.arrayCMND
+					getfield_s_this 8;		// short AuthenticationPin/Infomation.countgplx
+					newarray 11;
+					putstatic_a 51;		// reference AuthenticationPin/Infomation.arrayGPLX
+					getfield_s_this 9;		// short AuthenticationPin/Infomation.countvehicle
+					newarray 11;
+					putstatic_a 52;		// reference AuthenticationPin/Infomation.arrayvehicle
+					sconst_0;
+					sstore 7;
+				L25:	sconst_5;
+					sstore 8;
+				L26:	sload 8;
+					bspush 6;
+					sload 5;
+					sadd;
+					if_scmpge L40;
+				L27:	aload_2;
+					sload 8;
+					baload;
+					bspush 33;
+					if_scmpne L29;
+				L28:	sinc 6 1;
+					sconst_0;
+					sstore 7;
+					goto L39;
+				L29:	sload 6;
+					sconst_1;
+					if_scmpne L31;
+				L30:	getstatic_a 48;		// reference AuthenticationPin/Infomation.arrayhoten
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L31:	sload 6;
+					sconst_2;
+					if_scmpne L33;
+				L32:	getstatic_a 49;		// reference AuthenticationPin/Infomation.arrayngaysinh
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L33:	sload 6;
+					sconst_3;
+					if_scmpne L35;
+				L34:	getstatic_a 50;		// reference AuthenticationPin/Infomation.arrayCMND
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L35:	sload 6;
+					sconst_4;
+					if_scmpne L37;
+				L36:	getstatic_a 51;		// reference AuthenticationPin/Infomation.arrayGPLX
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L37:	sload 6;
+					sconst_5;
+					if_scmpne L39;
+				L38:	getstatic_a 52;		// reference AuthenticationPin/Infomation.arrayvehicle
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+				L39:	sinc 8 1;
+					goto L26;
+				L40:	goto_w L57;
+				L41:	getstatic_a 48;		// reference AuthenticationPin/Infomation.arrayhoten
+					arraylength;
+					sstore 8;
+				L42:	getstatic_a 49;		// reference AuthenticationPin/Infomation.arrayngaysinh
+					arraylength;
+					sstore 9;
+				L43:	getstatic_a 50;		// reference AuthenticationPin/Infomation.arrayCMND
+					arraylength;
+					sstore 10;
+				L44:	getstatic_a 51;		// reference AuthenticationPin/Infomation.arrayGPLX
+					arraylength;
+					sstore 11;
+				L45:	getstatic_a 52;		// reference AuthenticationPin/Infomation.arrayvehicle
+					arraylength;
+					sstore 12;
+				L46:	sload 8;
+					sload 9;
+					sadd;
+					sload 10;
+					sadd;
+					sload 11;
+					sadd;
+					sload 12;
+					sadd;
+					sstore 13;
+				L47:	aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					sload 13;
+					invokevirtual 28;		// javacard/framework/APDU.setOutgoingLength(S)V
+					getstatic_a 48;		// reference AuthenticationPin/Infomation.arrayhoten
+					sconst_0;
 					aload_2;
 					sconst_0;
-					getfield_b_this 0;		// byte AuthenticationPin/AuthenticationPin.x
-					bastore;
+					sload 8;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
 					aload_1;
 					sconst_0;
-					sconst_1;
-					invokevirtual 14;		// sendBytes(SS)V
+					sload 8;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 49;		// reference AuthenticationPin/Infomation.arrayngaysinh
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 9;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
 					aload_1;
-					getstatic_a 4;		// reference AuthenticationPin/AuthenticationPin.buffer
 					sconst_0;
-					sconst_2;
-					invokevirtual 15;		// sendBytesLong([BSS)V
+					sload 9;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 50;		// reference AuthenticationPin/Infomation.arrayCMND
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 10;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
 					aload_1;
-					getstatic_a 6;		// reference AuthenticationPin/AuthenticationPin.buffer1
 					sconst_0;
-					sconst_2;
-					invokevirtual 15;		// sendBytesLong([BSS)V
+					sload 10;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 51;		// reference AuthenticationPin/Infomation.arrayGPLX
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 11;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
 					aload_1;
-					getstatic_a 7;		// reference AuthenticationPin/AuthenticationPin.buffer2
 					sconst_0;
+					sload 11;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 52;		// reference AuthenticationPin/Infomation.arrayvehicle
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 12;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 12;
+					invokevirtual 30;		// javacard/framework/APDU.sendBytes(SS)V
+					goto L57;
+				L48:	aload_2;
 					sconst_2;
-					invokevirtual 15;		// sendBytesLong([BSS)V
-					goto L8;
-				L6:	aload_0;
-					bspush 9;
-					putfield_b 0;		// byte AuthenticationPin/AuthenticationPin.x
-					getstatic_a 4;		// reference AuthenticationPin/AuthenticationPin.buffer
-					sconst_0;
-					sconst_1;
-					bastore;
-					getstatic_a 4;		// reference AuthenticationPin/AuthenticationPin.buffer
-					sconst_1;
-					sconst_2;
-					bastore;
-					getstatic_a 6;		// reference AuthenticationPin/AuthenticationPin.buffer1
-					sconst_0;
-					sconst_3;
-					bastore;
-					getstatic_a 6;		// reference AuthenticationPin/AuthenticationPin.buffer1
-					sconst_1;
-					sconst_4;
-					bastore;
-					getstatic_a 7;		// reference AuthenticationPin/AuthenticationPin.buffer2
-					sconst_0;
+					baload;
+					sspush 255;
+					sand;
+					sstore 14;
+				L49:	sspush 249;
+					sload 14;
+					smul;
+					sstore 15;
+				L50:	aload_2;
 					sconst_5;
-					bastore;
-					getstatic_a 7;		// reference AuthenticationPin/AuthenticationPin.buffer2
-					sconst_1;
-					bspush 6;
-					bastore;
-					goto L8;
-				L7:	sspush 27904;
-					invokestatic 16;		// javacard/framework/ISOException.throwIt(S)V
-				L8:	return;
+					getstatic_a 40;		// reference AuthenticationPin/Infomation.image
+					sload 15;
+					sspush 249;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L57;
+				L51:	aload_2;
+					sconst_5;
+					getstatic_a 41;		// reference AuthenticationPin/Infomation.size
+					sconst_0;
+					bspush 7;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L57;
+				L52:	getstatic_a 41;		// reference AuthenticationPin/Infomation.size
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getstatic_a 41;		// reference AuthenticationPin/Infomation.size
+					arraylength;
+					invokestatic 29;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					bspush 7;
+					invokevirtual 53;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					goto L57;
+				L53:	aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_2;
+					sconst_2;
+					baload;
+					sspush 255;
+					sand;
+					sstore 16;
+				L54:	sspush 249;
+					sload 16;
+					smul;
+					sstore 17;
+				L55:	aload_1;
+					sspush 249;
+					invokevirtual 28;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					getstatic_a 40;		// reference AuthenticationPin/Infomation.image
+					sload 17;
+					sspush 249;
+					invokevirtual 54;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					goto L57;
+				L56:	sspush 27904;
+					invokestatic 43;		// javacard/framework/ISOException.throwIt(S)V
+				L57:	return;
 		}
 
 	}
