@@ -7,11 +7,11 @@
 <FileNodes>
 <fnode>
 <fileName>src\AuthenticationPin\HashPin.java</fileName>
-<line>10</line>
+<line>18</line>
 </fnode>
 <ActiveFile>
 <fileName>src\AuthenticationPin\Infomation.java</fileName>
-<line>16</line>
+<line>56</line>
 </ActiveFile>
 </FileNodes>
 </StateInfo>
