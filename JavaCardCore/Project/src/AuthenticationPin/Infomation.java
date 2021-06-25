@@ -27,10 +27,19 @@ public class Infomation extends Applet
 	final static byte INS_COUNTINSERT = (byte)0x04;
 	final static byte INS_SETCOUNT = (byte)0x05;
 	final static byte INS_COUNTANH = (byte)0x06;
+	final static byte INS_BLOCK = (byte)0x07;
+	final static byte INS_UNBLOCK = (byte)0x08;
+	final static byte INS_ERROR = (byte)0x09;
+	final static byte INS_CHECKBLOCKE = (byte)0xA0;
+	final static byte INS_CHECKERROR = (byte)0x0A1;
 	
 	// variable
 	private static byte[] arrayhoten, arrayngaysinh, arrayCMND,arrayGPLX, arrayvehicle, image, size;
 	private static byte[] arrayhotenencrypt, arrayngaysinhencrypt, arrayCMNDencrypt,arrayGPLXencrypt, arrayvehicleencrypt;
+	// bien dem so lan vi pham giao thong
+	private short error = 0;
+	// neu nhu the block thi bien block = 1; Neu the khong bi block thi block = 0
+	private short block = 0;
 	final static byte phi = (byte) 0x03;
 	byte balance = (byte) 0x0A;
 	short countht, countns, countcmnd, countgplx, countvehicle;
@@ -216,6 +225,37 @@ public class Infomation extends Applet
 			short count = (short)(249 * p);
 			apdu.setOutgoingLength((short)249);
 			apdu.sendBytesLong(image, count, (short)249);
+			break;
+			// dem loi vi pham giao thong
+		case INS_ERROR:
+			error++;
+			break;
+			// check xem da vi pham bao nhieu loi
+		case INS_CHECKERROR:
+			byte[] checkerror = new byte[1];
+			checkerror[0] = (byte)error;
+			apdu.setOutgoing();
+			apdu.setOutgoingLength((short)1);
+			Util.arrayCopy(checkerror,(short)0,buf,(short)0,(short)1);
+			apdu.sendBytes((short)0, (short)1);
+			break;
+			// check xem co block hay khong
+		case INS_CHECKBLOCKE:
+			byte[] checkblock = new byte[1];
+			checkblock[0] = (byte)block;
+			apdu.setOutgoing();			
+			apdu.setOutgoingLength((short)1);
+			Util.arrayCopy(checkblock,(short)0,buf,(short)0,(short)1);
+			apdu.sendBytes((short)0, (short)1);
+			break;
+			// chuc nang block the
+		case INS_BLOCK:			
+			block = (short)1;
+			break;
+			// chuc nang unblock the
+		case INS_UNBLOCK:			
+			block = (short)0;
+			error = (short)0;
 			break;
 		default:
 			ISOException.throwIt(ISO7816.SW_INS_NOT_SUPPORTED);
