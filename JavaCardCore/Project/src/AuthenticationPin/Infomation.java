@@ -119,7 +119,20 @@ public class Infomation extends Applet
 			// vong lap luu thong tin
 			short tempIndex = (short)0;
 				for(short i = (short)(ISO7816.OFFSET_CDATA);i<(short)(ISO7816.OFFSET_CDATA +1+dataLen);i++ ){
-					if(buf[i]==(byte)0x21){						
+					if(buf[i]==(byte)0x21){			
+						if(flag ==(short)1){
+							arrayhoten[tempIndex++]=buf[i];
+						}
+						else if(flag ==(short)2){
+							arrayngaysinh[tempIndex++]=buf[i];
+						}
+						else if(flag ==(short)3){
+							arrayCMND[tempIndex++]=buf[i];
+						}else if(flag ==(short)4){
+							arrayGPLX[tempIndex++]=buf[i];
+						}else if(flag ==(short)5){
+							arrayvehicle[tempIndex++]=buf[i];
+						}			
 						flag+=(short)1;
 						tempIndex = (short)0;
 						continue;
@@ -223,7 +236,6 @@ public class Infomation extends Applet
         byte[] temp = JCSystem.makeTransientByteArray((short) encryptData.length, JCSystem.CLEAR_ON_DESELECT);
         aesCipher.doFinal(encryptData, (short) 0, (short) encryptData.length, temp, (short) 0x00);
         short newLength = removePadding(temp, (short) encryptData.length);
-        
         return temp;
     }
    
