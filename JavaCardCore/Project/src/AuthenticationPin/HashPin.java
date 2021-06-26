@@ -32,7 +32,7 @@ public class HashPin extends Applet
 		rsaCipher = Cipher.getInstance(Cipher.ALG_RSA_PKCS1, false);
 		keyPair = new KeyPair(KeyPair.ALG_RSA_CRT, KeyBuilder.LENGTH_RSA_512);
 		rsa_privateKey = (RSAPrivateCrtKey) keyPair.getPrivate();
-		rsa_publicKey = (RSAPublicKey) keyPair.getPublic();		
+		rsa_publicKey = (RSAPublicKey) keyPair.getPublic();
 		keyPair.genKeyPair();
 
 	}
