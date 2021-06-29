@@ -53,7 +53,8 @@ public class DriverCardHostApp {
             if(channel == null){
                 return false;
             }
-         
+            
+            // select
             response = channel.transmit(new CommandAPDU(
                     0x00, (byte)0xA4, 
                     0x04, 0x00, 

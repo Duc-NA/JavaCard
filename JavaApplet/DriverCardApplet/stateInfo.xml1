@@ -6,12 +6,12 @@
 </ExpandNodes>
 <FileNodes>
 <fnode>
-<fileName>src\authentication\APPLET_CONSTANTS.java</fileName>
-<line>4</line>
+<fileName>src\authentication\AUTH_CONSTANTS.java</fileName>
+<line>11</line>
 </fnode>
 <ActiveFile>
 <fileName>src\authentication\PinApplet.java</fileName>
-<line>45</line>
+<line>172</line>
 </ActiveFile>
 </FileNodes>
 </StateInfo>

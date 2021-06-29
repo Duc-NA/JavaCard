@@ -1,5 +1,5 @@
 // converted by version 1.3
-// on Wed Jun 09 14:58:56 ICT 2021
+// on Fri Jun 25 17:05:41 ICT 2021
 
 .package authentication {
 	.aid 0x61:0x75:0x74:0x68:0x65:0x6E;
@@ -16,96 +16,113 @@
 
 	.constantPool {
 		// 0
-		staticMethodRef 0.0.0()V;		// java/lang/Object.<init>()V
+		instanceFieldRef byte PinApplet/balance;
 		// 1
-		classRef PinApplet;
+		instanceFieldRef short PinApplet/countht;
 		// 2
-		staticMethodRef PinApplet/<init>([BSB)V;
+		instanceFieldRef short PinApplet/countns;
 		// 3
-		staticMethodRef 1.3.0()V;		// javacard/framework/Applet.<init>()V
+		instanceFieldRef short PinApplet/countcmnd;
 		// 4
-		virtualMethodRef 1.3.1()V;		// javacard/framework/Applet.register()V
+		instanceFieldRef short PinApplet/countgplx;
 		// 5
-		virtualMethodRef 1.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		instanceFieldRef short PinApplet/countvehicle;
 		// 6
-		staticFieldRef byte[] AUTH_CONSTANTS/DEAULT_PIN_CODE;
+		virtualMethodRef 1.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
 		// 7
-		staticMethodRef PinApplet/initPIN([B)V;
+		staticFieldRef byte[] PinApplet/image;
 		// 8
-		virtualMethodRef 1.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		staticFieldRef byte[] PinApplet/size;
 		// 9
-		virtualMethodRef 1.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		staticFieldRef byte[] AUTH_CONSTANTS/DEAULT_PIN_CODE;
 		// 10
-		staticMethodRef 1.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		staticMethodRef PinApplet/initPIN([B)V;
 		// 11
+		staticFieldRef 1.9 PinApplet/pin;
+		// 12
+		virtualMethodRef 1.9.5()V;		// javacard/framework/OwnerPIN.reset()V
+		// 13
+		virtualMethodRef 1.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 14
+		virtualMethodRef 1.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 15
+		staticMethodRef 1.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 16
 		staticMethodRef PinApplet/updatePIN(Ljavacard/framework/APDU;)V;
 			.descriptor	Ljavacard/framework/APDU;	1.10;
 
-		// 12
+		// 17
 		staticMethodRef PinApplet/verify(Ljavacard/framework/APDU;)V;
 			.descriptor	Ljavacard/framework/APDU;	1.10;
 
-		// 13
-		staticMethodRef PinApplet/resetAndUnblock()V;
-		// 14
-		classRef 1.9;		// javacard/framework/OwnerPIN
-		// 15
-		staticMethodRef 1.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
-		// 16
-		staticFieldRef 1.9 PinApplet/pin;
-		// 17
-		virtualMethodRef 1.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
 		// 18
-		staticMethodRef PinApplet/checkValidatePIN()V;
+		staticMethodRef PinApplet/resetAndUnblock()V;
 		// 19
 		virtualMethodRef 1.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
 		// 20
-		staticMethodRef 1.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		staticMethodRef 1.8.1()V;		// javacard/framework/JCSystem.beginTransaction()V
 		// 21
-		virtualMethodRef 1.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+		classRef PinApplet;
 		// 22
-		virtualMethodRef 1.9.2()B;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+		staticMethodRef PinApplet/<init>([BSB)V;
 		// 23
-		virtualMethodRef 1.9.4()Z;		// javacard/framework/OwnerPIN.isValidated()Z
+		staticMethodRef 1.3.0()V;		// javacard/framework/Applet.<init>()V
 		// 24
-		virtualMethodRef 1.9.6()V;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+		staticMethodRef 0.0.0()V;		// java/lang/Object.<init>()V
 		// 25
-		virtualMethodRef 1.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		virtualMethodRef 1.3.1()V;		// javacard/framework/Applet.register()V
 		// 26
-		virtualMethodRef 1.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		staticMethodRef 1.8.2()V;		// javacard/framework/JCSystem.commitTransaction()V
 		// 27
+		staticFieldRef byte[] PinApplet/arrayhoten;
+		// 28
+		staticFieldRef byte[] PinApplet/arrayngaysinh;
+		// 29
+		staticFieldRef byte[] PinApplet/arrayCMND;
+		// 30
+		staticFieldRef byte[] PinApplet/arrayGPLX;
+		// 31
+		staticFieldRef byte[] PinApplet/arrayvehicle;
+		// 32
+		virtualMethodRef 1.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		// 33
+		virtualMethodRef 1.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		// 34
+		staticMethodRef 1.16.6([BSS)S;		// javacard/framework/Util.setShort([BSS)S
+		// 35
+		virtualMethodRef 1.10.4(SS)V;		// javacard/framework/APDU.sendBytes(SS)V
+		// 36
+		staticMethodRef 1.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 37
+		virtualMethodRef 1.10.8(SS)V;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+		// 38
 		virtualMethodRef 1.10.5([BSS)V;		// javacard/framework/APDU.sendBytesLong([BSS)V
+		// 39
+		classRef 1.9;		// javacard/framework/OwnerPIN
+		// 40
+		staticMethodRef 1.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 41
+		virtualMethodRef 1.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
+		// 42
+		virtualMethodRef 1.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+		// 43
+		virtualMethodRef 1.9.2()B;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+		// 44
+		virtualMethodRef 1.9.4()Z;		// javacard/framework/OwnerPIN.isValidated()Z
+		// 45
+		virtualMethodRef 1.9.6()V;		// javacard/framework/OwnerPIN.resetAndUnblock()V
 	}
 
-	.class public APPLET_CONSTANTS 0 extends 0.0 {		// extends java/lang/Object
+	.interface public abstract INFO_CONSTANTS 0 {
 
 		.fields {
-			public static final byte CLA = -80;		// B
-			public static final byte CLA_SELECT = 0;		// B
-			public static final byte SELECT = 4;		// B
-			public static final byte CREATE = 16;		// B
-			public static final byte UPDATE = 17;		// B
-			public static final byte READ = 19;		// B
-			public static final byte DELETE = 20;		// B
-			public static final byte UNBLOCK = 21;		// B
-			public static final byte VERIFY = 22;		// B
-			public static final byte CLEAR = 23;		// B
-		}
-
-		.publicMethodTable 1 {
-			equals(Ljava/lang/Object;)Z;
-		}
-
-		.packageMethodTable 0 {
-		}
-
-		.method public <init>()V 0 {
-			.stack 1;
-			.locals 0;
-
-				L0:	aload_0;
-					invokespecial 0;		// java/lang/Object.<init>()V
-					return;
+			public static final byte INS_THONGTIN = 0;		// B
+			public static final byte INS_NAPANH = 1;		// B
+			public static final byte INS_ANH = 2;		// B
+			public static final byte INS_INSERT = 3;		// B
+			public static final byte INS_COUNTINSERT = 4;		// B
+			public static final byte INS_SETCOUNT = 5;		// B
+			public static final byte INS_COUNTANH = 6;		// B
 		}
 
 	}
@@ -135,19 +152,66 @@
 			.locals 0;
 
 				L0:	aload_0;
-					invokespecial 0;		// java/lang/Object.<init>()V
+					invokespecial 24;		// java/lang/Object.<init>()V
 					return;
 		}
 
 	}
 
-	.class public PinApplet 2 extends 1.3 {		// extends javacard/framework/Applet
+	.class public APPLET_CONSTANTS 2 extends 0.0 {		// extends java/lang/Object
 
 		.fields {
-			private static 1.9 pin;		// Ljavacard/framework/OwnerPIN;
+			public static final byte CLA = -80;		// B
+			public static final byte CLA_SELECT = 0;		// B
+			public static final byte SELECT = 4;		// B
+			public static final byte CREATE = 16;		// B
+			public static final byte UPDATE = 17;		// B
+			public static final byte READ = 19;		// B
+			public static final byte DELETE = 20;		// B
+			public static final byte UNBLOCK = 21;		// B
+			public static final byte VERIFY = 22;		// B
+			public static final byte CLEAR = 23;		// B
 		}
 
-		.publicMethodTable 7 {
+		.publicMethodTable 1 {
+			equals(Ljava/lang/Object;)Z;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 24;		// java/lang/Object.<init>()V
+					return;
+		}
+
+	}
+
+	.class public PinApplet 3 extends 1.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			 byte balance 0;		// B
+			 short countht 1;		// S
+			 short countns 2;		// S
+			 short countcmnd 3;		// S
+			 short countgplx 4;		// S
+			 short countvehicle 5;		// S
+			private static 1.9 pin;		// Ljavacard/framework/OwnerPIN;
+			private static byte[] arrayhoten;		// [B
+			private static byte[] arrayngaysinh;		// [B
+			private static byte[] arrayCMND;		// [B
+			private static byte[] arrayGPLX;		// [B
+			private static byte[] arrayvehicle;		// [B
+			private static byte[] image;		// [B
+			private static byte[] size;		// [B
+			static final byte phi = 3;		// B
+		}
+
+		.publicMethodTable 4 {
 			equals(Ljava/lang/Object;)Z;
 			register()V;
 			register([BSB)V;
@@ -161,16 +225,22 @@
 		.packageMethodTable 0 {
 		}
 
+		.implementedInterfaceInfoTable { 
+			.interface INFO_CONSTANTS { 
+			}
+
+		}
+
 		.method public static install([BSB)V 0 {
 			.stack 5;
 			.locals 0;
 
-				L0:	new 1;		// authentication/PinApplet
+				L0:	new 21;		// authentication/PinApplet
 					dup;
 					aload_0;
 					sload_1;
 					sload_2;
-					invokespecial 2;		// authentication/PinApplet.<init>([BSB)V
+					invokespecial 22;		// authentication/PinApplet.<init>([BSB)V
 					pop;
 					return;
 		}
@@ -180,7 +250,10 @@
 			.locals 1;
 
 				L0:	aload_0;
-					invokespecial 3;		// javacard/framework/Applet.<init>()V
+					invokespecial 23;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					bspush 10;
+					putfield_b 0;		// byte authentication/PinApplet.balance
 					aload_1;
 					sload_2;
 					baload;
@@ -188,7 +261,7 @@
 				L1:	sload 4;
 					ifne L3;
 				L2:	aload_0;
-					invokevirtual 4;		// javacard/framework/Applet.register()V
+					invokevirtual 25;		// javacard/framework/Applet.register()V
 					goto L4;
 				L3:	aload_0;
 					aload_1;
@@ -196,24 +269,47 @@
 					sconst_1;
 					sadd;
 					sload 4;
-					invokevirtual 5;		// javacard/framework/Applet.register([BSB)V
-				L4:	getstatic_a 6;		// reference authentication/AUTH_CONSTANTS.DEAULT_PIN_CODE
-					invokestatic 7;		// authentication/PinApplet.initPIN([B)V
+					invokevirtual 6;		// javacard/framework/Applet.register([BSB)V
+				L4:	sspush 10000;
+					newarray 11;
+					putstatic_a 7;		// reference authentication/PinApplet.image
+					bspush 7;
+					newarray 11;
+					putstatic_a 8;		// reference authentication/PinApplet.size
+					getstatic_a 9;		// reference authentication/AUTH_CONSTANTS.DEAULT_PIN_CODE
+					invokestatic 10;		// authentication/PinApplet.initPIN([B)V
+					return;
+		}
+
+		.method public select()Z 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sconst_1;
+					sreturn;
+		}
+
+		.method public deselect()V 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getstatic_a 11;		// reference authentication/PinApplet.pin
+					invokevirtual 12;		// javacard/framework/OwnerPIN.reset()V
 					return;
 		}
 
 		.method public process(Ljavacard/framework/APDU;)V 7 {
-			.stack 2;
-			.locals 1;
+			.stack 5;
+			.locals 16;
 
 			.descriptor	Ljavacard/framework/APDU;	1.10;
 
 				L0:	aload_0;
-					invokevirtual 8;		// javacard/framework/Applet.selectingApplet()Z
+					invokevirtual 13;		// javacard/framework/Applet.selectingApplet()Z
 					ifeq L2;
 				L1:	return;
 				L2:	aload_1;
-					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
+					invokevirtual 14;		// javacard/framework/APDU.getBuffer()[B
 					astore_2;
 				L3:	aload_2;
 					sconst_0;
@@ -231,32 +327,426 @@
 					bspush -80;
 					if_scmpeq L8;
 				L7:	sspush 28160;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L8:	aload_2;
-					sconst_2;
-					baload;
-					bspush 99;
-					if_scmpeq L10;
-				L9:	sspush 27392;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
-				L10:	aload_2;
 					sconst_1;
 					baload;
-					slookupswitch L14 3 17 L11 21 L13 22 L12;
+					stableswitch L64 0 22 L49 L56 L61 L30 L12 L59 L60 L64 L64 L64 L64 L64 L64 L64 L64 L64 L64 L9 L64 L64 L64 L11 L10;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 16;		// authentication/PinApplet.updatePIN(Ljavacard/framework/APDU;)V
+					return;
+				L10:	aload_0;
+					aload_1;
+					invokespecial 17;		// authentication/PinApplet.verify(Ljavacard/framework/APDU;)V
+					return;
 				L11:	aload_0;
+					invokespecial 18;		// authentication/PinApplet.resetAndUnblock()V
+					return;
+				L12:	aload_1;
+					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore_3;
+				L13:	sconst_1;
+					sstore 4;
+				L14:	invokestatic 20;		// javacard/framework/JCSystem.beginTransaction()V
+					aload_0;
+					sconst_0;
+					putfield_s 1;		// short authentication/PinApplet.countht
+					aload_0;
+					sconst_0;
+					putfield_s 2;		// short authentication/PinApplet.countns
+					aload_0;
+					sconst_0;
+					putfield_s 3;		// short authentication/PinApplet.countcmnd
+					aload_0;
+					sconst_0;
+					putfield_s 4;		// short authentication/PinApplet.countgplx
+					aload_0;
+					sconst_0;
+					putfield_s 5;		// short authentication/PinApplet.countvehicle
+					sconst_5;
+					sstore 5;
+				L15:	sload 5;
+					sconst_5;
+					sload_3;
+					sadd;
+					if_scmpge L29;
+				L16:	aload_2;
+					sload 5;
+					baload;
+					bspush 33;
+					if_scmpne L18;
+				L17:	sinc 4 1;
+					goto L28;
+				L18:	sload 4;
+					sconst_1;
+					if_scmpne L20;
+				L19:	aload_0;
+					dup;
+					getfield_s 1;		// short authentication/PinApplet.countht
+					sconst_1;
+					sadd;
+					putfield_s 1;		// short authentication/PinApplet.countht
+					goto L28;
+				L20:	sload 4;
+					sconst_2;
+					if_scmpne L22;
+				L21:	aload_0;
+					dup;
+					getfield_s 2;		// short authentication/PinApplet.countns
+					sconst_1;
+					sadd;
+					putfield_s 2;		// short authentication/PinApplet.countns
+					goto L28;
+				L22:	sload 4;
+					sconst_3;
+					if_scmpne L24;
+				L23:	aload_0;
+					dup;
+					getfield_s 3;		// short authentication/PinApplet.countcmnd
+					sconst_1;
+					sadd;
+					putfield_s 3;		// short authentication/PinApplet.countcmnd
+					goto L28;
+				L24:	sload 4;
+					sconst_4;
+					if_scmpne L26;
+				L25:	aload_0;
+					dup;
+					getfield_s 4;		// short authentication/PinApplet.countgplx
+					sconst_1;
+					sadd;
+					putfield_s 4;		// short authentication/PinApplet.countgplx
+					goto L28;
+				L26:	sload 4;
+					sconst_5;
+					if_scmpne L28;
+				L27:	aload_0;
+					dup;
+					getfield_s 5;		// short authentication/PinApplet.countvehicle
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short authentication/PinApplet.countvehicle
+				L28:	sinc 5 1;
+					goto L15;
+				L29:	invokestatic 26;		// javacard/framework/JCSystem.commitTransaction()V
+					goto_w L65;
+				L30:	aload_1;
+					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore 5;
+				L31:	sconst_1;
+					sstore 6;
+				L32:	invokestatic 20;		// javacard/framework/JCSystem.beginTransaction()V
+					getfield_s_this 1;		// short authentication/PinApplet.countht
+					newarray 11;
+					putstatic_a 27;		// reference authentication/PinApplet.arrayhoten
+					getfield_s_this 2;		// short authentication/PinApplet.countns
+					newarray 11;
+					putstatic_a 28;		// reference authentication/PinApplet.arrayngaysinh
+					getfield_s_this 3;		// short authentication/PinApplet.countcmnd
+					newarray 11;
+					putstatic_a 29;		// reference authentication/PinApplet.arrayCMND
+					getfield_s_this 4;		// short authentication/PinApplet.countgplx
+					newarray 11;
+					putstatic_a 30;		// reference authentication/PinApplet.arrayGPLX
+					getfield_s_this 5;		// short authentication/PinApplet.countvehicle
+					newarray 11;
+					putstatic_a 31;		// reference authentication/PinApplet.arrayvehicle
+					sconst_0;
+					sstore 7;
+				L33:	sconst_5;
+					sstore 8;
+				L34:	sload 8;
+					sconst_5;
+					sload 5;
+					sadd;
+					if_scmpge L48;
+				L35:	aload_2;
+					sload 8;
+					baload;
+					bspush 33;
+					if_scmpne L37;
+				L36:	sinc 6 1;
+					sconst_0;
+					sstore 7;
+					goto L47;
+				L37:	sload 6;
+					sconst_1;
+					if_scmpne L39;
+				L38:	getstatic_a 27;		// reference authentication/PinApplet.arrayhoten
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L47;
+				L39:	sload 6;
+					sconst_2;
+					if_scmpne L41;
+				L40:	getstatic_a 28;		// reference authentication/PinApplet.arrayngaysinh
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L47;
+				L41:	sload 6;
+					sconst_3;
+					if_scmpne L43;
+				L42:	getstatic_a 29;		// reference authentication/PinApplet.arrayCMND
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L47;
+				L43:	sload 6;
+					sconst_4;
+					if_scmpne L45;
+				L44:	getstatic_a 30;		// reference authentication/PinApplet.arrayGPLX
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L47;
+				L45:	sload 6;
+					sconst_5;
+					if_scmpne L47;
+				L46:	getstatic_a 31;		// reference authentication/PinApplet.arrayvehicle
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+				L47:	sinc 8 1;
+					goto L34;
+				L48:	invokestatic 26;		// javacard/framework/JCSystem.commitTransaction()V
+					goto_w L65;
+				L49:	aload_1;
+					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					getstatic_a 27;		// reference authentication/PinApplet.arrayhoten
+					arraylength;
+					sstore 8;
+				L50:	getstatic_a 28;		// reference authentication/PinApplet.arrayngaysinh
+					arraylength;
+					sstore 9;
+				L51:	getstatic_a 29;		// reference authentication/PinApplet.arrayCMND
+					arraylength;
+					sstore 10;
+				L52:	getstatic_a 30;		// reference authentication/PinApplet.arrayGPLX
+					arraylength;
+					sstore 11;
+				L53:	getstatic_a 31;		// reference authentication/PinApplet.arrayvehicle
+					arraylength;
+					sstore 12;
+				L54:	sload 8;
+					sload 9;
+					sadd;
+					sload 10;
+					sadd;
+					sload 11;
+					sadd;
+					sload 12;
+					sadd;
+					sconst_5;
+					sadd;
+					sstore 13;
+				L55:	aload_1;
+					invokevirtual 32;		// javacard/framework/APDU.setOutgoing()S
+					pop;
 					aload_1;
-					invokespecial 11;		// authentication/PinApplet.updatePIN(Ljavacard/framework/APDU;)V
-					return;
-				L12:	aload_0;
+					sload 13;
+					invokevirtual 33;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_2;
+					sconst_0;
+					sload 8;
+					invokestatic 34;		// javacard/framework/Util.setShort([BSS)S
+					pop;
 					aload_1;
-					invokespecial 12;		// authentication/PinApplet.verify(Ljavacard/framework/APDU;)V
-					return;
-				L13:	aload_0;
-					invokespecial 13;		// authentication/PinApplet.resetAndUnblock()V
-					return;
-				L14:	sspush 27904;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
-					return;
+					sconst_1;
+					sconst_1;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 27;		// reference authentication/PinApplet.arrayhoten
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 8;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 8;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 9;
+					invokestatic 34;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_1;
+					sconst_1;
+					sconst_1;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 28;		// reference authentication/PinApplet.arrayngaysinh
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 9;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 9;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 10;
+					invokestatic 34;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_1;
+					sconst_1;
+					sconst_1;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 29;		// reference authentication/PinApplet.arrayCMND
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 10;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 10;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 11;
+					invokestatic 34;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_1;
+					sconst_1;
+					sconst_1;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 30;		// reference authentication/PinApplet.arrayGPLX
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 11;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 11;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 12;
+					invokestatic 34;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_1;
+					sconst_1;
+					sconst_1;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					getstatic_a 31;		// reference authentication/PinApplet.arrayvehicle
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 12;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 12;
+					invokevirtual 35;		// javacard/framework/APDU.sendBytes(SS)V
+					goto_w L65;
+				L56:	aload_1;
+					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_2;
+					sconst_2;
+					baload;
+					sspush 255;
+					sand;
+					sstore 14;
+				L57:	sspush 249;
+					sload 14;
+					smul;
+					sstore 15;
+				L58:	aload_2;
+					sconst_5;
+					getstatic_a 7;		// reference authentication/PinApplet.image
+					sload 15;
+					sspush 249;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L65;
+				L59:	aload_2;
+					sconst_5;
+					getstatic_a 8;		// reference authentication/PinApplet.size
+					sconst_0;
+					bspush 7;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L65;
+				L60:	getstatic_a 8;		// reference authentication/PinApplet.size
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getstatic_a 8;		// reference authentication/PinApplet.size
+					arraylength;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					bspush 7;
+					invokevirtual 37;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					goto L65;
+				L61:	aload_1;
+					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_1;
+					invokevirtual 32;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_2;
+					sconst_2;
+					baload;
+					sspush 255;
+					sand;
+					sstore 16;
+				L62:	sspush 249;
+					sload 16;
+					smul;
+					sstore 17;
+				L63:	aload_1;
+					sspush 249;
+					invokevirtual 33;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					getstatic_a 7;		// reference authentication/PinApplet.image
+					sload 17;
+					sspush 249;
+					invokevirtual 38;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					goto L65;
+				L64:	sspush 27904;
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+				L65:	return;
 		}
 
 		.method private static initPIN([B)V {
@@ -269,20 +759,20 @@
 					bspush 6;
 					if_scmpeq L2;
 				L1:	sspush 25363;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
-				L2:	new 14;		// javacard/framework/OwnerPIN
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	new 39;		// javacard/framework/OwnerPIN
 					dup;
 					sconst_5;
 					bspush 6;
-					invokespecial 15;		// javacard/framework/OwnerPIN.<init>(BB)V
-					putstatic_a 16;		// reference authentication/PinApplet.pin
-					getstatic_a 16;		// reference authentication/PinApplet.pin
+					invokespecial 40;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putstatic_a 11;		// reference authentication/PinApplet.pin
+					getstatic_a 11;		// reference authentication/PinApplet.pin
 					aload_0;
 					sconst_0;
 					aload_0;
 					arraylength;
 					s2b;
-					invokevirtual 17;		// javacard/framework/OwnerPIN.update([BSB)V
+					invokevirtual 41;		// javacard/framework/OwnerPIN.update([BSB)V
 					return;
 		}
 
@@ -292,35 +782,41 @@
 
 			.descriptor	Ljavacard/framework/APDU;	1.10;
 
-				L0:	aload_0;
-					invokespecial 18;		// authentication/PinApplet.checkValidatePIN()V
-					aload_1;
+				L0:	aload_1;
 					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
 					s2b;
 					sstore_2;
 				L1:	sload_2;
-					bspush 6;
+					bspush 12;
 					if_scmpeq L3;
 				L2:	sspush 25363;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L3:	aload_1;
-					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
+					invokevirtual 14;		// javacard/framework/APDU.getBuffer()[B
 					astore_3;
-				L4:	sload_2;
+				L4:	getstatic_a 11;		// reference authentication/PinApplet.pin
+					aload_3;
+					sconst_5;
+					bspush 6;
+					invokevirtual 42;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L6;
+				L5:	sspush 25362;
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	bspush 6;
 					newarray 11;
 					astore 4;
-				L5:	aload_3;
-					sconst_5;
+				L7:	aload_3;
+					bspush 11;
 					aload 4;
 					sconst_0;
-					sload_2;
-					invokestatic 20;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					bspush 6;
+					invokestatic 36;		// javacard/framework/Util.arrayCopy([BS[BSS)S
 					pop;
-					getstatic_a 16;		// reference authentication/PinApplet.pin
+					getstatic_a 11;		// reference authentication/PinApplet.pin
 					aload 4;
 					sconst_0;
 					sload_2;
-					invokevirtual 17;		// javacard/framework/OwnerPIN.update([BSB)V
+					invokevirtual 41;		// javacard/framework/OwnerPIN.update([BSB)V
 					return;
 		}
 
@@ -331,7 +827,7 @@
 			.descriptor	Ljavacard/framework/APDU;	1.10;
 
 				L0:	aload_1;
-					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
+					invokevirtual 14;		// javacard/framework/APDU.getBuffer()[B
 					astore_2;
 				L1:	aload_1;
 					invokevirtual 19;		// javacard/framework/APDU.setIncomingAndReceive()S
@@ -341,20 +837,20 @@
 					bspush 6;
 					if_scmpeq L4;
 				L3:	sspush 25363;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
-				L4:	getstatic_a 16;		// reference authentication/PinApplet.pin
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getstatic_a 11;		// reference authentication/PinApplet.pin
 					aload_2;
 					sconst_5;
 					sload_3;
-					invokevirtual 21;		// javacard/framework/OwnerPIN.check([BSB)Z
+					invokevirtual 42;		// javacard/framework/OwnerPIN.check([BSB)Z
 					ifne L8;
-				L5:	getstatic_a 16;		// reference authentication/PinApplet.pin
-					invokevirtual 22;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+				L5:	getstatic_a 11;		// reference authentication/PinApplet.pin
+					invokevirtual 43;		// javacard/framework/OwnerPIN.getTriesRemaining()B
 					ifne L7;
 				L6:	sspush 25364;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L7:	sspush 25362;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L8:	return;
 		}
 
@@ -362,16 +858,16 @@
 			.stack 1;
 			.locals 0;
 
-				L0:	getstatic_a 16;		// reference authentication/PinApplet.pin
-					invokevirtual 23;		// javacard/framework/OwnerPIN.isValidated()Z
+				L0:	getstatic_a 11;		// reference authentication/PinApplet.pin
+					invokevirtual 44;		// javacard/framework/OwnerPIN.isValidated()Z
 					ifne L4;
-				L1:	getstatic_a 16;		// reference authentication/PinApplet.pin
-					invokevirtual 22;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+				L1:	getstatic_a 11;		// reference authentication/PinApplet.pin
+					invokevirtual 43;		// javacard/framework/OwnerPIN.getTriesRemaining()B
 					ifne L3;
 				L2:	sspush 25364;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L3:	sspush 25361;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L4:	return;
 		}
 
@@ -379,8 +875,8 @@
 			.stack 1;
 			.locals 0;
 
-				L0:	getstatic_a 16;		// reference authentication/PinApplet.pin
-					invokevirtual 24;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+				L0:	getstatic_a 11;		// reference authentication/PinApplet.pin
+					invokevirtual 45;		// javacard/framework/OwnerPIN.resetAndUnblock()V
 					return;
 		}
 
@@ -396,21 +892,21 @@
 					arraylength;
 					ifne L3;
 				L2:	sspush 27648;
-					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
 				L3:	aload_2;
 					arraylength;
 					sstore_3;
 				L4:	aload_1;
-					invokevirtual 25;		// javacard/framework/APDU.setOutgoing()S
+					invokevirtual 32;		// javacard/framework/APDU.setOutgoing()S
 					sstore 4;
 				L5:	aload_1;
 					sload_3;
-					invokevirtual 26;		// javacard/framework/APDU.setOutgoingLength(S)V
+					invokevirtual 33;		// javacard/framework/APDU.setOutgoingLength(S)V
 					aload_1;
 					aload_2;
 					sconst_0;
 					sload_3;
-					invokevirtual 27;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					invokevirtual 38;		// javacard/framework/APDU.sendBytesLong([BSS)V
 					return;
 		}
 

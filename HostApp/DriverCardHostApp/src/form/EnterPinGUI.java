@@ -10,6 +10,7 @@ import drivercardhostapp.commons.constants.APPLET_CONSTANTS;
 import drivercardhostapp.commons.constants.AUTH_CONSTANTS;
 import drivercardhostapp.commons.constants.ISO7816;
 import drivercardhostapp.commons.utils.ConvertData;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.smartcardio.CardException;
@@ -29,7 +30,7 @@ public class EnterPinGUI extends javax.swing.JFrame {
     public EnterPinGUI(DriverCardHostApp host) {
         initComponents();
         this.host = host;
-         mainGUI = new MainGUI(host);
+        mainGUI = new MainGUI(host);
     }
 
     /**
@@ -47,6 +48,7 @@ public class EnterPinGUI extends javax.swing.JFrame {
         tfPassword = new javax.swing.JPasswordField();
         txtStatus = new javax.swing.JLabel();
         btnUnlock = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,13 @@ public class EnterPinGUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -78,14 +87,20 @@ public class EnterPinGUI extends javax.swing.JFrame {
                         .addComponent(txtStatus))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
                                 .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnUnlock)
-                                    .addComponent(btnEnter))))))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton1)
+                                .addGap(66, 66, 66)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUnlock)
+                            .addComponent(btnEnter))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -100,7 +115,9 @@ public class EnterPinGUI extends javax.swing.JFrame {
                     .addComponent(btnEnter)
                     .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnUnlock)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUnlock)
+                    .addComponent(jButton1))
                 .addGap(101, 101, 101))
         );
 
@@ -123,13 +140,13 @@ public class EnterPinGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
-        char[] pinText = tfPassword.getPassword();
+        char[] pinText = tfPassword.getPassword(); // lay ma pin
         
         try {
             ResponseAPDU response = host.sendAPDU(
                     APPLET_CONSTANTS.CLA, APPLET_CONSTANTS.VERIFY, AUTH_CONSTANTS.AUTH,
                     (byte)2, ConvertData.charArrayToByteArray(pinText));
-             String check = Integer.toHexString(response.getSW());
+            String check = Integer.toHexString(response.getSW());
             System.out.println(check);
             
             switch(check){
@@ -171,6 +188,23 @@ public class EnterPinGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi");
         }
     }//GEN-LAST:event_btnUnlockActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            ResponseAPDU response = host.sendAPDU(
+                    APPLET_CONSTANTS.CLA, APPLET_CONSTANTS.READ, AUTH_CONSTANTS.AUTH,
+                    (byte)2, null);
+             String check = Integer.toHexString(response.getSW());
+             if(check.equals(ISO7816.SW_NO_ERROR)){
+                 System.out.println(Arrays.toString(response.getData()));
+             }else{
+                 showFailureDialog();
+             }
+        }catch (CardException ex) {
+            Logger.getLogger(EnterPinGUI.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void pushToMainWindow(){
         this.setVisible(false);
@@ -219,6 +253,7 @@ public class EnterPinGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnter;
     private javax.swing.JButton btnUnlock;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField tfPassword;
