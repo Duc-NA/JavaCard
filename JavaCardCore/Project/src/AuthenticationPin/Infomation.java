@@ -114,6 +114,7 @@ public class Infomation extends Applet
 			countns++;
 			countcmnd++;
 			countgplx++;
+			countvehicle++;
 			break;
 			// luu thong tin vao array cua tung thong tin 
 		case INS_INSERT:
@@ -280,7 +281,7 @@ public class Infomation extends Applet
     }
    
     private short addPadding(byte[] data, short offset, short length) {
-        data[(short) (offset + length++)] = (byte) 0x80;
+        data[(short) (offset + length++)] = (byte)0x80;
         while (length < 16 || (length % 16 != 0)) {
             data[(short) (offset + length++)] = 0x00;
         }

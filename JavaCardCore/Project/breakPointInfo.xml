@@ -1,1 +1,15 @@
-<breakPointInfo/>
+<breakPointInfo>
+<package>
+<name>AuthenticationPin</name>
+<classFile>
+<name>Infomation.java</name>
+<lines>
+<line>
+<linenumber>283</linenumber>
+<valid>1</valid>
+<invalidTimes>0</invalidTimes>
+</line>
+</lines>
+</classFile>
+</package>
+</breakPointInfo>
