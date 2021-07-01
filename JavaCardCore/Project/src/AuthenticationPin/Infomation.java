@@ -34,8 +34,19 @@ public class Infomation extends Applet
 	final static byte INS_CHECKERROR = (byte)0x0A1;
 	
 	// variable
-	private static byte[] arrayhoten, arrayngaysinh, arrayCMND,arrayGPLX, arrayvehicle, image, size;
-	private static byte[] arrayhotenencrypt, arrayngaysinhencrypt, arrayCMNDencrypt,arrayGPLXencrypt, arrayvehicleencrypt;
+	private static byte[] image, size;
+	public static byte[] arrayhoten = new byte[256];
+	public static byte[] arrayngaysinh = new byte[256];
+	public static byte[] arrayCMND = new byte[256];
+	public static byte[] arrayGPLX = new byte[256];
+	public static byte[] arrayvehicle = new byte[256];
+	
+	// variable	 encrypt
+	public static byte[] arrayhotenencrypt = new byte[256];
+	public static byte[] arrayngaysinhencrypt = new byte[256];
+	public static byte[] arrayCMNDencrypt = new byte[256];
+	public static byte[] arrayGPLXencrypt = new byte[256];
+	public static byte[] arrayvehicleencrypt = new byte[256];	
 	// bien dem so lan vi pham giao thong
 	private short error = 0;
 	// neu nhu the block thi bien block = 1; Neu the khong bi block thi block = 0
@@ -179,16 +190,16 @@ public class Infomation extends Applet
 		case INS_THONGTIN:
 			// decrypt
 			byte[] htin = decrypt(arrayhotenencrypt);
-				 byte[] nsin = decrypt(arrayngaysinhencrypt);
-				 byte[] cmndin = decrypt(arrayCMNDencrypt);
-				 byte[] gplxin = decrypt(arrayGPLXencrypt);
-				 byte[] vcin = decrypt(arrayvehicleencrypt);
+			byte[] nsin = decrypt(arrayngaysinhencrypt);
+			byte[] cmndin = decrypt(arrayCMNDencrypt);
+			byte[] gplxin = decrypt(arrayGPLXencrypt);
+			byte[] vcin = decrypt(arrayvehicleencrypt);
 				 
-			short lenhoten = (short) htin.length;
-			short lenngaysinh = (short) nsin.length;
-			short lencmnd = (short) cmndin.length;
-			short lengplx = (short) gplxin.length;
-			short lenvehicle = (short) vcin.length;
+			short lenhoten = (short) arrayhoten.length;
+			short lenngaysinh = (short) arrayngaysinh.length;
+			short lencmnd = (short) arrayCMND.length;
+			short lengplx = (short) arrayGPLX.length;
+			short lenvehicle = (short) arrayvehicle.length;
 			short len = (short) (lenhoten + lenngaysinh + lencmnd + lengplx + lenvehicle);
 			
 			apdu.setOutgoing();
@@ -227,10 +238,12 @@ public class Infomation extends Applet
 			apdu.setOutgoingLength((short)249);
 			apdu.sendBytesLong(image, count, (short)249);
 			break;
+			
 			// dem loi vi pham giao thong
 		case INS_ERROR:
 			error++;
 			break;
+			
 			// check xem da vi pham bao nhieu loi
 		case INS_CHECKERROR:
 			byte[] checkerror = new byte[1];
@@ -240,6 +253,7 @@ public class Infomation extends Applet
 			Util.arrayCopy(checkerror,(short)0,buf,(short)0,(short)1);
 			apdu.sendBytes((short)0, (short)1);
 			break;
+			
 			// check xem co block hay khong
 		case INS_CHECKBLOCKE:
 			byte[] checkblock = new byte[1];
@@ -249,12 +263,14 @@ public class Infomation extends Applet
 			Util.arrayCopy(checkblock,(short)0,buf,(short)0,(short)1);
 			apdu.sendBytes((short)0, (short)1);
 			break;
+			
 			// chuc nang block the
 		case INS_BLOCK:			
 			block = (short)1;
 			break;
+			
 			// chuc nang unblock the
-		case INS_UNBLOCK:			
+		case INS_UNBLOCK:
 			block = (short)0;
 			error = (short)0;
 			break;
@@ -265,38 +281,50 @@ public class Infomation extends Applet
 /*AES*/
 	private byte[] encrypt(byte[] encryptData) {
         aesCipher.init(aesKey, Cipher.MODE_ENCRYPT);
-        short newLength = addPadding(encryptData, (short) 0, (short) encryptData.length);
-        byte[] temp = JCSystem.makeTransientByteArray(newLength, JCSystem.CLEAR_ON_DESELECT);
-        aesCipher.doFinal(encryptData, (short) 0 , newLength, temp, (short) 0x00);
-        return temp;
+        short flag = (short) 1;
+	    byte[] temp = new byte[256];
+    	while(flag == (short)1){
+    		for(short i=0;i<=(short) encryptData.length;i++){
+    			if(i!=(short) encryptData.length){
+					temp[i] = encryptData[i];
+    			}
+    			else{
+	    			flag = (short) 0;
+    			}
+    		}
+    	}
+        // short newLength = addPadding(temp, (short) 0, (short) encryptData.length);
+        byte[] dataEncrypted = JCSystem.makeTransientByteArray((short)256, JCSystem.CLEAR_ON_DESELECT);        
+        aesCipher.doFinal(temp, (short) 0 , (short)256, dataEncrypted, (short) 0x00);
+        return dataEncrypted;
     }
 
     
-    private byte[] decrypt(byte[] encryptData) {
+    private byte[] decrypt(byte[] decryptData) {
         aesCipher.init(aesKey, Cipher.MODE_DECRYPT);
-        byte[] temp = JCSystem.makeTransientByteArray((short) encryptData.length, JCSystem.CLEAR_ON_DESELECT);
-        aesCipher.doFinal(encryptData, (short) 0, (short) encryptData.length, temp, (short) 0x00);
-        short newLength = removePadding(temp, (short) encryptData.length);
-        return temp;
+        byte[] dataDecrypted = JCSystem.makeTransientByteArray((short) 256, JCSystem.CLEAR_ON_DESELECT);
+        aesCipher.doFinal(decryptData, (short) 0, (short) 256, dataDecrypted, (short) 0x00);
+        // short newLength = removePadding(dataDecrypted, (short) length);
+        return dataDecrypted;
     }
    
-    private short addPadding(byte[] data, short offset, short length) {
-        data[(short) (offset + length++)] = (byte)0x80;
-        while (length < 16 || (length % 16 != 0)) {
-            data[(short) (offset + length++)] = 0x00;
-        }
-        return length;
-    }
+    // private short addPadding(byte[] data, short offset, short length) {
+        // data[(short) (offset + length++)] = (byte)0x80;
+        // while (length < 16 || (length % 16 != 0)) {
+            // data[(short) (offset + length++)] = 0x00;
+        // }
+        // return length;
+    // }
    
-    private short removePadding(byte[] buffer, short length) {
-        while ((length != 0) && buffer[(short) (length - 1)] == (byte) 0x00) {
-            length--;
-        }
-        if (buffer[(short) (length - 1)] != (byte) 0x80) {
-            ISOException.throwIt(ISO7816.SW_DATA_INVALID);
-        }
-        length--;
-        return length;
-    }
+    // private short removePadding(byte[] buffer, short length) {
+        // while ((length != 0) && buffer[(short) (length - 1)] == (byte) 0x00) {
+            // length--;
+        // }
+        // if (buffer[(short) (length - 1)] != (byte) 0x80) {
+            // ISOException.throwIt(ISO7816.SW_DATA_INVALID);
+        // }
+        // length--;
+        // return length;
+    // }
 
 }

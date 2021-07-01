@@ -1,5 +1,5 @@
 // converted by version 1.3
-// on Tue Jun 29 19:14:59 ICT 2021
+// on Thu Jul 01 08:10:40 ICT 2021
 
 .package AuthenticationPin {
 	.aid 0x11:0x22:0x33:0x44:0x55;
@@ -163,32 +163,28 @@
 		// 64
 		virtualMethodRef 0.10.5([BSS)V;		// javacard/framework/APDU.sendBytesLong([BSS)V
 		// 65
-		staticMethodRef Infomation/addPadding([BSS)S;
-		// 66
-		staticMethodRef Infomation/removePadding([BS)S;
-		// 67
 		staticMethodRef 1.11.0(BZ)Ljavacard/security/MessageDigest;;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
 			.descriptor	Ljavacard/security/MessageDigest;	1.11;
 
-		// 68
+		// 66
 		classRef HashPin;
-		// 69
+		// 67
 		staticFieldRef byte[] MD5/Message;
-		// 70
+		// 68
 		classRef MD5;
-		// 71
+		// 69
 		staticMethodRef MD5/<init>()V;
-		// 72
+		// 70
 		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
-		// 73
+		// 71
 		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
-		// 74
+		// 72
 		virtualMethodRef MD5/hash_message(Ljavacard/framework/APDU;)V;
 			.descriptor	Ljavacard/framework/APDU;	0.10;
 
-		// 75
+		// 73
 		virtualMethodRef 1.11.4()V;		// javacard/security/MessageDigest.reset()V
-		// 76
+		// 74
 		virtualMethodRef 1.11.1([BSS[BS)S;		// javacard/security/MessageDigest.doFinal([BSS[BS)S
 	}
 
@@ -265,7 +261,7 @@
 			.stack 5;
 			.locals 0;
 
-				L0:	new 68;		// AuthenticationPin/HashPin
+				L0:	new 66;		// AuthenticationPin/HashPin
 					dup;
 					invokespecial 16;		// AuthenticationPin/HashPin.<init>()V
 					aload_0;
@@ -431,6 +427,16 @@
 			 short countcmnd 7;		// S
 			 short countgplx 8;		// S
 			 short countvehicle 9;		// S
+			public static byte[] arrayhoten 0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayngaysinh 1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayCMND 2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayGPLX 3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayvehicle 4 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayhotenencrypt 5 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayngaysinhencrypt 6 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayCMNDencrypt 7 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayGPLXencrypt 8 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayvehicleencrypt 9 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
 			private static final short KEY_SIZE = 32;		// S
 			static final byte Bot_CLA = -80;		// B
 			static final byte INS_THONGTIN = 0;		// B
@@ -445,18 +451,8 @@
 			static final byte INS_ERROR = 9;		// B
 			static final byte INS_CHECKBLOCKE = -96;		// B
 			static final byte INS_CHECKERROR = -95;		// B
-			private static byte[] arrayhoten;		// [B
-			private static byte[] arrayngaysinh;		// [B
-			private static byte[] arrayCMND;		// [B
-			private static byte[] arrayGPLX;		// [B
-			private static byte[] arrayvehicle;		// [B
 			private static byte[] image;		// [B
 			private static byte[] size;		// [B
-			private static byte[] arrayhotenencrypt;		// [B
-			private static byte[] arrayngaysinhencrypt;		// [B
-			private static byte[] arrayCMNDencrypt;		// [B
-			private static byte[] arrayGPLXencrypt;		// [B
-			private static byte[] arrayvehicleencrypt;		// [B
 			static final byte phi = 3;		// B
 		}
 
@@ -934,19 +930,19 @@
 					getstatic_a 61;		// reference AuthenticationPin/Infomation.arrayvehicleencrypt
 					invokespecial 62;		// AuthenticationPin/Infomation.decrypt([B)[B
 					astore 17;
-				L61:	aload 13;
+				L61:	getstatic_a 51;		// reference AuthenticationPin/Infomation.arrayhoten
 					arraylength;
 					sstore 18;
-				L62:	aload 14;
+				L62:	getstatic_a 52;		// reference AuthenticationPin/Infomation.arrayngaysinh
 					arraylength;
 					sstore 19;
-				L63:	aload 15;
+				L63:	getstatic_a 53;		// reference AuthenticationPin/Infomation.arrayCMND
 					arraylength;
 					sstore 20;
-				L64:	aload 16;
+				L64:	getstatic_a 54;		// reference AuthenticationPin/Infomation.arrayGPLX
 					arraylength;
 					sstore 21;
-				L65:	aload 17;
+				L65:	getstatic_a 55;		// reference AuthenticationPin/Infomation.arrayvehicle
 					arraylength;
 					sstore 22;
 				L66:	sload 18;
@@ -1159,125 +1155,80 @@
 
 		.method private encrypt([B)[B {
 			.stack 6;
-			.locals 2;
+			.locals 3;
 
 				L0:	getfield_a_this 8;		// reference AuthenticationPin/Infomation.aesCipher
 					getfield_a_this 9;		// reference AuthenticationPin/Infomation.aesKey
 					sconst_2;
 					invokevirtual 22;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
-					aload_0;
-					aload_1;
-					sconst_0;
+					sconst_1;
+					sstore_2;
+				L1:	sspush 256;
+					newarray 11;
+					astore_3;
+				L2:	sload_2;
+					sconst_1;
+					if_scmpne L10;
+				L3:	sconst_0;
+					sstore 4;
+				L4:	sload 4;
 					aload_1;
 					arraylength;
-					invokespecial 65;		// AuthenticationPin/Infomation.addPadding([BSS)S
+					if_scmpgt L9;
+				L5:	sload 4;
+					aload_1;
+					arraylength;
+					if_scmpeq L7;
+				L6:	aload_3;
+					sload 4;
+					aload_1;
+					sload 4;
+					baload;
+					bastore;
+					goto L8;
+				L7:	sconst_0;
 					sstore_2;
-				L1:	sload_2;
+				L8:	sinc 4 1;
+					goto L4;
+				L9:	goto L2;
+				L10:	sspush 256;
 					sconst_2;
 					invokestatic 32;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
-					astore_3;
-				L2:	getfield_a_this 8;		// reference AuthenticationPin/Infomation.aesCipher
-					aload_1;
-					sconst_0;
-					sload_2;
+					astore 4;
+				L11:	getfield_a_this 8;		// reference AuthenticationPin/Infomation.aesCipher
 					aload_3;
+					sconst_0;
+					sspush 256;
+					aload 4;
 					sconst_0;
 					invokevirtual 23;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
 					pop;
-					aload_3;
+					aload 4;
 					areturn;
 		}
 
 		.method private decrypt([B)[B {
 			.stack 6;
-			.locals 2;
+			.locals 1;
 
 				L0:	getfield_a_this 8;		// reference AuthenticationPin/Infomation.aesCipher
 					getfield_a_this 9;		// reference AuthenticationPin/Infomation.aesKey
 					sconst_1;
 					invokevirtual 22;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
-					aload_1;
-					arraylength;
+					sspush 256;
 					sconst_2;
 					invokestatic 32;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
 					astore_2;
 				L1:	getfield_a_this 8;		// reference AuthenticationPin/Infomation.aesCipher
 					aload_1;
 					sconst_0;
-					aload_1;
-					arraylength;
+					sspush 256;
 					aload_2;
 					sconst_0;
 					invokevirtual 23;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
 					pop;
-					aload_0;
 					aload_2;
-					aload_1;
-					arraylength;
-					invokespecial 66;		// AuthenticationPin/Infomation.removePadding([BS)S
-					sstore_3;
-				L2:	aload_2;
 					areturn;
-		}
-
-		.method private addPadding([BSS)S {
-			.stack 5;
-			.locals 1;
-
-				L0:	sload_2;
-					sload_3;
-					sinc 3 1;
-					sadd;
-					sstore 4;
-				L1:	aload_1;
-					sconst_1;
-					bspush -128;
-					bastore;
-				L2:	sload_3;
-					bspush 16;
-					if_scmplt L4;
-				L3:	sload_3;
-					bspush 16;
-					srem;
-					ifeq L5;
-				L4:	aload_1;
-					sload_2;
-					sload_3;
-					sinc 3 1;
-					sadd;
-					sconst_0;
-					bastore;
-					goto L2;
-				L5:	sload_3;
-					sreturn;
-		}
-
-		.method private removePadding([BS)S {
-			.stack 3;
-			.locals 0;
-
-				L0:	sload_2;
-					ifeq L3;
-				L1:	aload_1;
-					sload_2;
-					sconst_1;
-					ssub;
-					baload;
-					ifne L3;
-				L2:	sinc 2 -1;
-					goto L0;
-				L3:	aload_1;
-					sload_2;
-					sconst_1;
-					ssub;
-					baload;
-					bspush -128;
-					if_scmpeq L5;
-				L4:	sspush 27012;
-					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
-				L5:	sinc 2 -1;
-					sload_2;
-					sreturn;
 		}
 
 	}
@@ -1315,7 +1266,7 @@
 					aload_0;
 					sconst_2;
 					sconst_1;
-					invokestatic 67;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
+					invokestatic 65;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
 					putfield_a 15;		// reference AuthenticationPin/MD5.mDig
 					return;
 		}
@@ -1326,10 +1277,10 @@
 
 				L0:	sspush 128;
 					newarray 11;
-					putstatic_a 69;		// reference AuthenticationPin/MD5.Message
-					new 70;		// AuthenticationPin/MD5
+					putstatic_a 67;		// reference AuthenticationPin/MD5.Message
+					new 68;		// AuthenticationPin/MD5
 					dup;
-					invokespecial 71;		// AuthenticationPin/MD5.<init>()V
+					invokespecial 69;		// AuthenticationPin/MD5.<init>()V
 					aload_0;
 					sload_1;
 					sconst_1;
@@ -1337,7 +1288,7 @@
 					aload_0;
 					sload_1;
 					baload;
-					invokevirtual 72;		// javacard/framework/Applet.register([BSB)V
+					invokevirtual 70;		// javacard/framework/Applet.register([BSB)V
 					return;
 		}
 
@@ -1348,7 +1299,7 @@
 			.descriptor	Ljavacard/framework/APDU;	0.10;
 
 				L0:	aload_0;
-					invokevirtual 73;		// javacard/framework/Applet.selectingApplet()Z
+					invokevirtual 71;		// javacard/framework/Applet.selectingApplet()Z
 					ifeq L2;
 				L1:	return;
 				L2:	aload_1;
@@ -1360,7 +1311,7 @@
 					slookupswitch L5 1 5 L4;
 				L4:	aload_0;
 					aload_1;
-					invokevirtual 74;		// AuthenticationPin/MD5.hash_message(Ljavacard/framework/APDU;)V
+					invokevirtual 72;		// AuthenticationPin/MD5.hash_message(Ljavacard/framework/APDU;)V
 					goto L6;
 				L5:	sspush 27904;
 					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
@@ -1380,16 +1331,16 @@
 					invokevirtual 27;		// javacard/framework/APDU.setIncomingAndReceive()S
 					sstore_3;
 				L2:	getfield_a_this 15;		// reference AuthenticationPin/MD5.mDig
-					invokevirtual 75;		// javacard/security/MessageDigest.reset()V
+					invokevirtual 73;		// javacard/security/MessageDigest.reset()V
 					getfield_a_this 15;		// reference AuthenticationPin/MD5.mDig
 					aload_2;
 					sconst_5;
 					sload_3;
-					getstatic_a 69;		// reference AuthenticationPin/MD5.Message
+					getstatic_a 67;		// reference AuthenticationPin/MD5.Message
 					sconst_0;
-					invokevirtual 76;		// javacard/security/MessageDigest.doFinal([BSS[BS)S
+					invokevirtual 74;		// javacard/security/MessageDigest.doFinal([BSS[BS)S
 					pop;
-					getstatic_a 69;		// reference AuthenticationPin/MD5.Message
+					getstatic_a 67;		// reference AuthenticationPin/MD5.Message
 					sconst_0;
 					aload_2;
 					sconst_0;
