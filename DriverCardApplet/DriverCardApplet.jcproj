@@ -1,0 +1,15 @@
+<JavaCardProject name="DriverCardApplet">
+<USER>
+<PKG name="driver_card" aid="61 75 74 68 65 6E" major="1" minor="0">
+<APPLET aid="61 75 74 68 65 6E 2F 70 69 6E" instanceaid="" parameter="" authority="" privileges="" index="13288" name="PinApplet"/>
+<CLASS name="APPLET_CONSTANTS"/>
+<CLASS name="AUTH_CONSTANTS"/>
+<CLASS name="INFO_CONSTANTS"/>
+<APPLET aid="61 75 74 68 65 6E 69 6E 66 6F" instanceaid="" parameter="" authority="" privileges="" index="14016" name="InfoApplet"/>
+<CLASS name="PinInterface"/>
+<APPLET aid="61 75 74 68 65 6E 52 53 41" instanceaid="" parameter="" authority="" privileges="" index="8720" name="RSASample"/>
+<APPLET aid="61 75 74 68 65 6E 01" instanceaid="" parameter="" authority="" privileges="" index="-1544" name="RSAApplet"/>
+</PKG>
+<Libs/>
+</USER>
+</JavaCardProject>

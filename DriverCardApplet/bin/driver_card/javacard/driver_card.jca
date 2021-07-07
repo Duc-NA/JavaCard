@@ -1,0 +1,2320 @@
+// converted by version 1.3
+// on Tue Jul 06 23:47:22 ICT 2021
+
+.package driver_card {
+	.aid 0x61:0x75:0x74:0x68:0x65:0x6E;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.2;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x2:0x1 1.2;		//javacardx/crypto
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.2;		//javacard/security
+	}
+
+	.applet {
+		0x61:0x75:0x74:0x68:0x65:0x6E:0x2F:0x70:0x69:0x6E PinApplet;
+		0x61:0x75:0x74:0x68:0x65:0x6E:0x69:0x6E:0x66:0x6F InfoApplet;
+		0x61:0x75:0x74:0x68:0x65:0x6E:0x52:0x53:0x41 RSASample;
+		0x61:0x75:0x74:0x68:0x65:0x6E:0x1 RSAApplet;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte InfoApplet/balance;
+		// 1
+		instanceFieldRef short InfoApplet/error;
+		// 2
+		instanceFieldRef short InfoApplet/block;
+		// 3
+		instanceFieldRef byte[] InfoApplet/pinAID;
+		// 4
+		instanceFieldRef 2.1 InfoApplet/aesCipher;
+		// 5
+		instanceFieldRef 3.20 InfoApplet/aesKey;
+		// 6
+		instanceFieldRef short InfoApplet/countht;
+		// 7
+		instanceFieldRef short InfoApplet/countns;
+		// 8
+		instanceFieldRef short InfoApplet/countcmnd;
+		// 9
+		instanceFieldRef short InfoApplet/countgplx;
+		// 10
+		instanceFieldRef short InfoApplet/countvehicle;
+		// 11
+		instanceFieldRef 3.11 PinApplet/mDig;
+		// 12
+		instanceFieldRef byte[] PinApplet/arrayKeyAES;
+		// 13
+		instanceFieldRef short RSAApplet/sigLen;
+		// 14
+		instanceFieldRef 3.15 RSAApplet/rsaSig;
+		// 15
+		instanceFieldRef 3.8 RSAApplet/rsaPrivKey;
+		// 16
+		instanceFieldRef 3.9 RSAApplet/rsaPubKey;
+		// 17
+		instanceFieldRef byte[] RSASample/tempBuffer;
+		// 18
+		instanceFieldRef byte[] RSASample/flags;
+		// 19
+		instanceFieldRef byte[] RSASample/rsaPubKey;
+		// 20
+		instanceFieldRef byte[] RSASample/rsaPriKey;
+		// 21
+		instanceFieldRef short RSASample/rsaPubKeyLen;
+		// 22
+		instanceFieldRef short RSASample/rsaPriKeyLen;
+		// 23
+		instanceFieldRef 3.15 RSASample/rsaSignature;
+		// 24
+		instanceFieldRef 2.1 RSASample/rsaCipher;
+		// 25
+		staticMethodRef 1.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 26
+		staticFieldRef byte[] InfoApplet/image;
+		// 27
+		staticFieldRef byte[] InfoApplet/size;
+		// 28
+		staticMethodRef 2.1.0(BZ)Ljavacardx/crypto/Cipher;;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+			.descriptor	Ljavacardx/crypto/Cipher;	2.1;
+
+		// 29
+		staticFieldRef byte[] InfoApplet/arrayhoten;
+		// 30
+		staticFieldRef byte[] InfoApplet/arrayngaysinh;
+		// 31
+		staticFieldRef byte[] InfoApplet/arrayCMND;
+		// 32
+		staticFieldRef byte[] InfoApplet/arrayGPLX;
+		// 33
+		staticFieldRef byte[] InfoApplet/arrayvehicle;
+		// 34
+		staticMethodRef InfoApplet/setAESKey()V;
+		// 35
+		staticMethodRef InfoApplet/encrypt([B)[B;
+		// 36
+		staticFieldRef byte[] InfoApplet/arrayhotenencrypt;
+		// 37
+		staticMethodRef 1.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 38
+		staticFieldRef byte[] InfoApplet/arrayngaysinhencrypt;
+		// 39
+		staticFieldRef byte[] InfoApplet/arrayCMNDencrypt;
+		// 40
+		staticFieldRef byte[] InfoApplet/arrayGPLXencrypt;
+		// 41
+		staticFieldRef byte[] InfoApplet/arrayvehicleencrypt;
+		// 42
+		staticMethodRef InfoApplet/decrypt([B)[B;
+		// 43
+		virtualMethodRef 1.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		// 44
+		virtualMethodRef 1.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		// 45
+		virtualMethodRef 1.10.4(SS)V;		// javacard/framework/APDU.sendBytes(SS)V
+		// 46
+		virtualMethodRef 1.10.8(SS)V;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+		// 47
+		virtualMethodRef 1.10.5([BSS)V;		// javacard/framework/APDU.sendBytesLong([BSS)V
+		// 48
+		staticMethodRef 1.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 49
+		virtualMethodRef 2.1.3(Ljavacard/security/Key;B)V;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	3.0;
+
+		// 50
+		virtualMethodRef 2.1.1([BSS[BS)S;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+		// 51
+		classRef PinApplet;
+		// 52
+		staticMethodRef PinApplet/<init>([BSB)V;
+		// 53
+		staticMethodRef 3.11.0(BZ)Ljavacard/security/MessageDigest;;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
+			.descriptor	Ljavacard/security/MessageDigest;	3.11;
+
+		// 54
+		staticMethodRef 0.0.0()V;		// java/lang/Object.<init>()V
+		// 55
+		virtualMethodRef 1.3.1()V;		// javacard/framework/Applet.register()V
+		// 56
+		virtualMethodRef 1.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 57
+		staticFieldRef byte[] AUTH_CONSTANTS/DEAULT_PIN_CODE;
+		// 58
+		staticMethodRef PinApplet/initPIN([B)V;
+		// 59
+		staticMethodRef 1.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		// 60
+		staticMethodRef 3.13.0(BSZ)Ljavacard/security/Key;;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+			.descriptor	Ljavacard/security/Key;	3.0;
+
+		// 61
+		staticMethodRef PinApplet/hashMD5Message([B)[B;
+		// 62
+		staticFieldRef 1.9 PinApplet/pin;
+		// 63
+		virtualMethodRef 1.9.5()V;		// javacard/framework/OwnerPIN.reset()V
+		// 64
+		virtualMethodRef 1.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 65
+		staticMethodRef PinApplet/updatePIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 66
+		staticMethodRef PinApplet/verify(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 67
+		staticMethodRef PinApplet/resetAndUnblock()V;
+		// 68
+		classRef 1.9;		// javacard/framework/OwnerPIN
+		// 69
+		staticMethodRef 1.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 70
+		virtualMethodRef 1.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
+		// 71
+		virtualMethodRef 1.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+		// 72
+		staticMethodRef 1.8.1()V;		// javacard/framework/JCSystem.beginTransaction()V
+		// 73
+		staticMethodRef 1.8.2()V;		// javacard/framework/JCSystem.commitTransaction()V
+		// 74
+		virtualMethodRef 1.9.2()B;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+		// 75
+		virtualMethodRef 1.9.4()Z;		// javacard/framework/OwnerPIN.isValidated()Z
+		// 76
+		virtualMethodRef 1.9.6()V;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+		// 77
+		virtualMethodRef 3.11.4()V;		// javacard/security/MessageDigest.reset()V
+		// 78
+		virtualMethodRef 3.11.1([BSS[BS)S;		// javacard/security/MessageDigest.doFinal([BSS[BS)S
+		// 79
+		classRef RSAApplet;
+		// 80
+		staticMethodRef RSAApplet/<init>()V;
+		// 81
+		virtualMethodRef 1.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 82
+		classRef 3.20;		// javacard/security/AESKey
+		// 83
+		staticMethodRef 3.15.0(BZ)Ljavacard/security/Signature;;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+			.descriptor	Ljavacard/security/Signature;	3.15;
+
+		// 84
+		classRef InfoApplet;
+		// 85
+		classRef 3.8;		// javacard/security/RSAPrivateKey
+		// 86
+		virtualMethodRef 1.3.1()V;		// javacard/framework/Applet.register()V
+		// 87
+		classRef 3.9;		// javacard/security/RSAPublicKey
+		// 88
+		classRef 0.2;		// java/lang/Exception
+		// 89
+		classRef 3.16;		// javacard/security/KeyPair
+		// 90
+		staticMethodRef 3.16.0(BS)V;		// javacard/security/KeyPair.<init>(BS)V
+		// 91
+		virtualMethodRef 3.16.1()V;		// javacard/security/KeyPair.genKeyPair()V
+		// 92
+		virtualMethodRef 3.16.2()Ljavacard/security/PrivateKey;;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+			.descriptor	Ljavacard/security/PrivateKey;	3.2;
+
+		// 93
+		virtualMethodRef 3.16.3()Ljavacard/security/PublicKey;;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+			.descriptor	Ljavacard/security/PublicKey;	3.3;
+
+		// 94
+		virtualMethodRef 1.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 95
+		staticMethodRef RSAApplet/sendPublicModulus(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 96
+		staticMethodRef RSAApplet/sendPublicExponent(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 97
+		staticMethodRef RSAApplet/rsaSign(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 98
+		virtualMethodRef 3.15.3(Ljavacard/security/Key;B)V;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	3.0;
+
+		// 99
+		virtualMethodRef 3.15.5([BSS[BS)S;		// javacard/security/Signature.sign([BSS[BS)S
+		// 100
+		staticMethodRef 1.8.11([BSB)Ljavacard/framework/AID;;		// javacard/framework/JCSystem.lookupAID([BSB)Ljavacard/framework/AID;
+			.descriptor	Ljavacard/framework/AID;	1.6;
+
+		// 101
+		staticMethodRef 1.8.4(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;		// javacard/framework/JCSystem.getAppletShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;
+			.descriptor	Ljavacard/framework/AID;	1.6;
+			.descriptor	Ljavacard/framework/Shareable;	1.2;
+
+		// 102
+		classRef PinInterface;
+		// 103
+		staticMethodRef 1.16.3([BSSB)S;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+		// 104
+		virtualMethodRef 1.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 105
+		virtualMethodRef 1.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 106
+		virtualMethodRef 1.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 107
+		staticMethodRef InfoApplet/<init>([BSB)V;
+		// 108
+		staticMethodRef 1.8.18()V;		// javacard/framework/JCSystem.requestObjectDeletion()V
+		// 109
+		staticMethodRef RSASample/genRsaKeyPair()V;
+		// 110
+		classRef RSASample;
+		// 111
+		staticMethodRef RSASample/<init>()V;
+		// 112
+		virtualMethodRef 1.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 113
+		virtualMethodRef 1.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 114
+		staticMethodRef RSASample/getRsaPubKey(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 115
+		staticMethodRef RSASample/rsaSign(Ljavacard/framework/APDU;S)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 116
+		staticMethodRef 1.16.2([BS[BSS)S;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+		// 117
+		staticMethodRef RSASample/getRsaPriKeyComponent(B[BS)S;
+		// 118
+		virtualMethodRef 3.15.6([BSS)V;		// javacard/security/Signature.update([BSS)V
+	}
+
+	.interface public abstract INFO_CONSTANTS 1 {
+
+		.fields {
+			public static final byte Bot_CLA = -80;		// B
+			public static final byte INS_THONGTIN = 0;		// B
+			public static final byte INS_NAPANH = 1;		// B
+			public static final byte INS_ANH = 2;		// B
+			public static final byte INS_INSERT = 3;		// B
+			public static final byte INS_COUNTINSERT = 4;		// B
+			public static final byte INS_SETCOUNT = 5;		// B
+			public static final byte INS_COUNTANH = 6;		// B
+			public static final byte INS_BLOCK = 7;		// B
+			public static final byte INS_UNBLOCK = 8;		// B
+			public static final byte INS_ERROR = 9;		// B
+			public static final byte INS_CHECKBLOCKE = -96;		// B
+			public static final byte INS_CHECKERROR = -95;		// B
+		}
+
+	}
+
+	.interface public abstract PinInterface 0 {
+
+		.shareable;
+
+		.superInterfaces {
+			1.2;		// javacard/framework/Shareable
+		}
+
+		.method public abstract getHashPin()[B 0 {
+		}
+
+	}
+
+	.class public APPLET_CONSTANTS 2 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			public static final byte CLA = -80;		// B
+			public static final byte CLA_SELECT = 0;		// B
+			public static final byte SELECT = 4;		// B
+			public static final byte CREATE = 16;		// B
+			public static final byte UPDATE = 17;		// B
+			public static final byte READ = 19;		// B
+			public static final byte DELETE = 20;		// B
+			public static final byte UNBLOCK = 21;		// B
+			public static final byte VERIFY = 22;		// B
+			public static final byte CLEAR = 23;		// B
+			public static final byte INIT_CARD = -103;		// B
+			public static final short KEY_SIZE = 16;		// S
+		}
+
+		.publicMethodTable 1 {
+			equals(Ljava/lang/Object;)Z;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 54;		// java/lang/Object.<init>()V
+					return;
+		}
+
+	}
+
+	.class public InfoApplet 3 extends 1.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private 2.1 aesCipher 0;		// Ljavacardx/crypto/Cipher;
+			private 3.20 aesKey 1;		// Ljavacard/security/AESKey;
+			private final byte[] pinAID 2;		// [B
+			 byte balance 3;		// B
+			 short countht 4;		// S
+			 short countns 5;		// S
+			 short countcmnd 6;		// S
+			 short countgplx 7;		// S
+			 short countvehicle 8;		// S
+			private short error 9;		// S
+			private short block 10;		// S
+			public static byte[] arrayhotenencrypt 0 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayngaysinhencrypt 1 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayCMNDencrypt 2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayGPLXencrypt 3 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			public static byte[] arrayvehicleencrypt 4 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			private static byte[] arrayhoten;		// [B
+			private static byte[] arrayngaysinh;		// [B
+			private static byte[] arrayCMND;		// [B
+			private static byte[] arrayGPLX;		// [B
+			private static byte[] arrayvehicle;		// [B
+			private static byte[] image;		// [B
+			private static byte[] size;		// [B
+			static final byte phi = 3;		// B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.implementedInterfaceInfoTable { 
+			.interface INFO_CONSTANTS { 
+			}
+
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 84;		// driver_card/InfoApplet
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 107;		// driver_card/InfoApplet.<init>([BSB)V
+					pop;
+					return;
+		}
+
+		.method private <init>([BSB)V {
+			.stack 5;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 25;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					bspush 10;
+					putfield_b 0;		// byte driver_card/InfoApplet.balance
+					aload_0;
+					sconst_0;
+					putfield_s 1;		// short driver_card/InfoApplet.error
+					aload_0;
+					sconst_0;
+					putfield_s 2;		// short driver_card/InfoApplet.block
+					aload_0;
+					bspush 10;
+					newarray 11;
+					dup;
+					sconst_0;
+					bspush 97;
+					bastore;
+					dup;
+					sconst_1;
+					bspush 117;
+					bastore;
+					dup;
+					sconst_2;
+					bspush 116;
+					bastore;
+					dup;
+					sconst_3;
+					bspush 104;
+					bastore;
+					dup;
+					sconst_4;
+					bspush 101;
+					bastore;
+					dup;
+					sconst_5;
+					bspush 110;
+					bastore;
+					dup;
+					bspush 6;
+					bspush 47;
+					bastore;
+					dup;
+					bspush 7;
+					bspush 112;
+					bastore;
+					dup;
+					bspush 8;
+					bspush 105;
+					bastore;
+					dup;
+					bspush 9;
+					bspush 110;
+					bastore;
+					putfield_a 3;		// reference driver_card/InfoApplet.pinAID
+					sspush 10000;
+					newarray 11;
+					putstatic_a 26;		// reference driver_card/InfoApplet.image
+					bspush 7;
+					newarray 11;
+					putstatic_a 27;		// reference driver_card/InfoApplet.size
+					aload_0;
+					bspush 13;
+					sconst_0;
+					invokestatic 28;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+					putfield_a 4;		// reference driver_card/InfoApplet.aesCipher
+					aload_0;
+					bspush 15;
+					sspush 128;
+					sconst_0;
+					invokestatic 60;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 82;		// T_CLASSORINTERFACE javacard/security/AESKey
+					putfield_a 5;		// reference driver_card/InfoApplet.aesKey
+					aload_0;
+					invokevirtual 86;		// javacard/framework/Applet.register()V
+					return;
+		}
+
+		.method private setAESKey()V {
+			.stack 4;
+			.locals 4;
+
+				L0:	getfield_a_this 3;		// reference driver_card/InfoApplet.pinAID
+					sconst_0;
+					getfield_a_this 3;		// reference driver_card/InfoApplet.pinAID
+					arraylength;
+					s2b;
+					invokestatic 100;		// javacard/framework/JCSystem.lookupAID([BSB)Ljavacard/framework/AID;
+					astore_1;
+				L1:	aload_1;
+					sconst_0;
+					invokestatic 101;		// javacard/framework/JCSystem.getAppletShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;
+					checkcast 0 102;		// T_CLASSORINTERFACE driver_card/PinInterface
+					checkcast 0 102;		// T_CLASSORINTERFACE driver_card/PinInterface
+					astore_2;
+				L2:	aload_2;
+					invokeinterface 1 102 0;		// driver_card/PinInterface
+					astore_3;
+				L3:	getfield_a_this 5;		// reference driver_card/InfoApplet.aesKey
+					aload_3;
+					sconst_0;
+					invokeinterface 3 82 4;		// javacard/security/AESKey
+				L4:	goto L7;
+				L5:	astore 4;
+				L6:	bspush 16;
+					newarray 11;
+					sconst_0;
+					bspush 16;
+					sconst_0;
+					invokestatic 103;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+				L7:	return;
+			.exceptionTable {
+				// start_block end_block handler_block catch_type_index
+				L3 L4 L5 88;
+			}
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 5;
+			.locals 28;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_0;
+					invokevirtual 104;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_2;
+					sconst_1;
+					baload;
+					slookupswitch L73 12 -96 L69 -95 L67 0 L46 1 L58 2 L63 3 L22 4 L4 5 L61 6 L62 7 L71 8 L72 9 L66;
+				L4:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore_3;
+				L5:	sconst_1;
+					sstore 4;
+				L6:	aload_0;
+					sconst_0;
+					putfield_s 6;		// short driver_card/InfoApplet.countht
+					aload_0;
+					sconst_0;
+					putfield_s 7;		// short driver_card/InfoApplet.countns
+					aload_0;
+					sconst_0;
+					putfield_s 8;		// short driver_card/InfoApplet.countcmnd
+					aload_0;
+					sconst_0;
+					putfield_s 9;		// short driver_card/InfoApplet.countgplx
+					aload_0;
+					sconst_0;
+					putfield_s 10;		// short driver_card/InfoApplet.countvehicle
+					sconst_5;
+					sstore 5;
+				L7:	sload 5;
+					sconst_5;
+					sload_3;
+					sadd;
+					if_scmpge L21;
+				L8:	aload_2;
+					sload 5;
+					baload;
+					bspush 33;
+					if_scmpne L10;
+				L9:	sinc 4 1;
+					goto L20;
+				L10:	sload 4;
+					sconst_1;
+					if_scmpne L12;
+				L11:	aload_0;
+					dup;
+					getfield_s 6;		// short driver_card/InfoApplet.countht
+					sconst_1;
+					sadd;
+					putfield_s 6;		// short driver_card/InfoApplet.countht
+					goto L20;
+				L12:	sload 4;
+					sconst_2;
+					if_scmpne L14;
+				L13:	aload_0;
+					dup;
+					getfield_s 7;		// short driver_card/InfoApplet.countns
+					sconst_1;
+					sadd;
+					putfield_s 7;		// short driver_card/InfoApplet.countns
+					goto L20;
+				L14:	sload 4;
+					sconst_3;
+					if_scmpne L16;
+				L15:	aload_0;
+					dup;
+					getfield_s 8;		// short driver_card/InfoApplet.countcmnd
+					sconst_1;
+					sadd;
+					putfield_s 8;		// short driver_card/InfoApplet.countcmnd
+					goto L20;
+				L16:	sload 4;
+					sconst_4;
+					if_scmpne L18;
+				L17:	aload_0;
+					dup;
+					getfield_s 9;		// short driver_card/InfoApplet.countgplx
+					sconst_1;
+					sadd;
+					putfield_s 9;		// short driver_card/InfoApplet.countgplx
+					goto L20;
+				L18:	sload 4;
+					sconst_5;
+					if_scmpne L20;
+				L19:	aload_0;
+					dup;
+					getfield_s 10;		// short driver_card/InfoApplet.countvehicle
+					sconst_1;
+					sadd;
+					putfield_s 10;		// short driver_card/InfoApplet.countvehicle
+				L20:	sinc 5 1;
+					goto L7;
+				L21:	goto_w L74;
+				L22:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore 5;
+				L23:	sconst_1;
+					sstore 6;
+				L24:	getfield_s_this 6;		// short driver_card/InfoApplet.countht
+					newarray 11;
+					putstatic_a 29;		// reference driver_card/InfoApplet.arrayhoten
+					getfield_s_this 7;		// short driver_card/InfoApplet.countns
+					newarray 11;
+					putstatic_a 30;		// reference driver_card/InfoApplet.arrayngaysinh
+					getfield_s_this 8;		// short driver_card/InfoApplet.countcmnd
+					newarray 11;
+					putstatic_a 31;		// reference driver_card/InfoApplet.arrayCMND
+					getfield_s_this 9;		// short driver_card/InfoApplet.countgplx
+					newarray 11;
+					putstatic_a 32;		// reference driver_card/InfoApplet.arrayGPLX
+					getfield_s_this 10;		// short driver_card/InfoApplet.countvehicle
+					newarray 11;
+					putstatic_a 33;		// reference driver_card/InfoApplet.arrayvehicle
+					sconst_0;
+					sstore 7;
+				L25:	sconst_5;
+					sstore 8;
+				L26:	sload 8;
+					sconst_5;
+					sload 5;
+					sadd;
+					if_scmpge L40;
+				L27:	aload_2;
+					sload 8;
+					baload;
+					bspush 33;
+					if_scmpne L29;
+				L28:	sinc 6 1;
+					sconst_0;
+					sstore 7;
+					goto L39;
+				L29:	sload 6;
+					sconst_1;
+					if_scmpne L31;
+				L30:	getstatic_a 29;		// reference driver_card/InfoApplet.arrayhoten
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L31:	sload 6;
+					sconst_2;
+					if_scmpne L33;
+				L32:	getstatic_a 30;		// reference driver_card/InfoApplet.arrayngaysinh
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L33:	sload 6;
+					sconst_3;
+					if_scmpne L35;
+				L34:	getstatic_a 31;		// reference driver_card/InfoApplet.arrayCMND
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L35:	sload 6;
+					sconst_4;
+					if_scmpne L37;
+				L36:	getstatic_a 32;		// reference driver_card/InfoApplet.arrayGPLX
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+					goto L39;
+				L37:	sload 6;
+					sconst_5;
+					if_scmpne L39;
+				L38:	getstatic_a 33;		// reference driver_card/InfoApplet.arrayvehicle
+					sload 7;
+					sinc 7 1;
+					aload_2;
+					sload 8;
+					baload;
+					bastore;
+				L39:	sinc 8 1;
+					goto L26;
+				L40:	aload_0;
+					invokespecial 34;		// driver_card/InfoApplet.setAESKey()V
+					aload_0;
+					getstatic_a 29;		// reference driver_card/InfoApplet.arrayhoten
+					invokespecial 35;		// driver_card/InfoApplet.encrypt([B)[B
+					astore 8;
+				L41:	aload_0;
+					getstatic_a 30;		// reference driver_card/InfoApplet.arrayngaysinh
+					invokespecial 35;		// driver_card/InfoApplet.encrypt([B)[B
+					astore 9;
+				L42:	aload_0;
+					getstatic_a 31;		// reference driver_card/InfoApplet.arrayCMND
+					invokespecial 35;		// driver_card/InfoApplet.encrypt([B)[B
+					astore 10;
+				L43:	aload_0;
+					getstatic_a 32;		// reference driver_card/InfoApplet.arrayGPLX
+					invokespecial 35;		// driver_card/InfoApplet.encrypt([B)[B
+					astore 11;
+				L44:	aload_0;
+					getstatic_a 33;		// reference driver_card/InfoApplet.arrayvehicle
+					invokespecial 35;		// driver_card/InfoApplet.encrypt([B)[B
+					astore 12;
+				L45:	aload 8;
+					sconst_0;
+					getstatic_a 36;		// reference driver_card/InfoApplet.arrayhotenencrypt
+					sconst_0;
+					aload 8;
+					arraylength;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload 9;
+					sconst_0;
+					getstatic_a 38;		// reference driver_card/InfoApplet.arrayngaysinhencrypt
+					sconst_0;
+					aload 9;
+					arraylength;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload 10;
+					sconst_0;
+					getstatic_a 39;		// reference driver_card/InfoApplet.arrayCMNDencrypt
+					sconst_0;
+					aload 10;
+					arraylength;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload 11;
+					sconst_0;
+					getstatic_a 40;		// reference driver_card/InfoApplet.arrayGPLXencrypt
+					sconst_0;
+					aload 11;
+					arraylength;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload 12;
+					sconst_0;
+					getstatic_a 41;		// reference driver_card/InfoApplet.arrayvehicleencrypt
+					sconst_0;
+					aload 12;
+					arraylength;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L74;
+				L46:	aload_0;
+					getstatic_a 36;		// reference driver_card/InfoApplet.arrayhotenencrypt
+					invokespecial 42;		// driver_card/InfoApplet.decrypt([B)[B
+					astore 13;
+				L47:	aload_0;
+					getstatic_a 38;		// reference driver_card/InfoApplet.arrayngaysinhencrypt
+					invokespecial 42;		// driver_card/InfoApplet.decrypt([B)[B
+					astore 14;
+				L48:	aload_0;
+					getstatic_a 39;		// reference driver_card/InfoApplet.arrayCMNDencrypt
+					invokespecial 42;		// driver_card/InfoApplet.decrypt([B)[B
+					astore 15;
+				L49:	aload_0;
+					getstatic_a 40;		// reference driver_card/InfoApplet.arrayGPLXencrypt
+					invokespecial 42;		// driver_card/InfoApplet.decrypt([B)[B
+					astore 16;
+				L50:	aload_0;
+					getstatic_a 41;		// reference driver_card/InfoApplet.arrayvehicleencrypt
+					invokespecial 42;		// driver_card/InfoApplet.decrypt([B)[B
+					astore 17;
+				L51:	getstatic_a 29;		// reference driver_card/InfoApplet.arrayhoten
+					arraylength;
+					sstore 18;
+				L52:	getstatic_a 30;		// reference driver_card/InfoApplet.arrayngaysinh
+					arraylength;
+					sstore 19;
+				L53:	getstatic_a 31;		// reference driver_card/InfoApplet.arrayCMND
+					arraylength;
+					sstore 20;
+				L54:	getstatic_a 32;		// reference driver_card/InfoApplet.arrayGPLX
+					arraylength;
+					sstore 21;
+				L55:	getstatic_a 33;		// reference driver_card/InfoApplet.arrayvehicle
+					arraylength;
+					sstore 22;
+				L56:	sload 18;
+					sload 19;
+					sadd;
+					sload 20;
+					sadd;
+					sload 21;
+					sadd;
+					sload 22;
+					sadd;
+					sconst_5;
+					sadd;
+					sstore 23;
+				L57:	aload_1;
+					invokevirtual 43;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					sload 23;
+					invokevirtual 44;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_2;
+					sconst_0;
+					sload 18;
+					s2b;
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload 13;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 18;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 18;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 19;
+					s2b;
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload 14;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 19;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 19;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 20;
+					s2b;
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload 15;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 20;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 20;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 21;
+					s2b;
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload 16;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 21;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 21;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload_2;
+					sconst_0;
+					sload 22;
+					s2b;
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					aload 17;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 22;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 22;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					goto_w L74;
+				L58:	aload_2;
+					sconst_2;
+					baload;
+					sspush 255;
+					sand;
+					sstore 24;
+				L59:	sspush 249;
+					sload 24;
+					smul;
+					sstore 25;
+				L60:	aload_2;
+					sconst_5;
+					getstatic_a 26;		// reference driver_card/InfoApplet.image
+					sload 25;
+					sspush 249;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L74;
+				L61:	aload_2;
+					sconst_5;
+					getstatic_a 27;		// reference driver_card/InfoApplet.size
+					sconst_0;
+					bspush 7;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L74;
+				L62:	getstatic_a 27;		// reference driver_card/InfoApplet.size
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getstatic_a 27;		// reference driver_card/InfoApplet.size
+					arraylength;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					bspush 7;
+					invokevirtual 46;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					goto_w L74;
+				L63:	aload_1;
+					invokevirtual 43;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_2;
+					sconst_2;
+					baload;
+					sspush 255;
+					sand;
+					sstore 26;
+				L64:	sspush 249;
+					sload 26;
+					smul;
+					sstore 27;
+				L65:	aload_1;
+					sspush 249;
+					invokevirtual 44;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					getstatic_a 26;		// reference driver_card/InfoApplet.image
+					sload 27;
+					sspush 249;
+					invokevirtual 47;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					goto L74;
+				L66:	aload_0;
+					dup;
+					getfield_s 1;		// short driver_card/InfoApplet.error
+					sconst_1;
+					sadd;
+					putfield_s 1;		// short driver_card/InfoApplet.error
+					goto L74;
+				L67:	sconst_1;
+					newarray 11;
+					astore 28;
+				L68:	aload 28;
+					sconst_0;
+					getfield_s_this 1;		// short driver_card/InfoApplet.error
+					s2b;
+					bastore;
+					aload_1;
+					invokevirtual 43;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					sconst_1;
+					invokevirtual 44;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload 28;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sconst_1;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					goto L74;
+				L69:	sconst_1;
+					newarray 11;
+					astore 29;
+				L70:	aload 29;
+					sconst_0;
+					getfield_s_this 2;		// short driver_card/InfoApplet.block
+					s2b;
+					bastore;
+					aload_1;
+					invokevirtual 43;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					sconst_1;
+					invokevirtual 44;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload 29;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sconst_1;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 45;		// javacard/framework/APDU.sendBytes(SS)V
+					goto L74;
+				L71:	aload_0;
+					sconst_1;
+					putfield_s 2;		// short driver_card/InfoApplet.block
+					goto L74;
+				L72:	aload_0;
+					sconst_0;
+					putfield_s 2;		// short driver_card/InfoApplet.block
+					aload_0;
+					sconst_0;
+					putfield_s 1;		// short driver_card/InfoApplet.error
+					goto L74;
+				L73:	sspush 27904;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L74:	return;
+		}
+
+		.method private encrypt([B)[B {
+			.stack 6;
+			.locals 3;
+
+				L0:	getfield_a_this 4;		// reference driver_card/InfoApplet.aesCipher
+					getfield_a_this 5;		// reference driver_card/InfoApplet.aesKey
+					sconst_2;
+					invokevirtual 49;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+					sconst_1;
+					sstore_2;
+				L1:	sspush 256;
+					newarray 11;
+					astore_3;
+				L2:	sload_2;
+					sconst_1;
+					if_scmpne L10;
+				L3:	sconst_0;
+					sstore 4;
+				L4:	sload 4;
+					aload_1;
+					arraylength;
+					if_scmpgt L9;
+				L5:	sload 4;
+					aload_1;
+					arraylength;
+					if_scmpeq L7;
+				L6:	aload_3;
+					sload 4;
+					aload_1;
+					sload 4;
+					baload;
+					bastore;
+					goto L8;
+				L7:	sconst_0;
+					sstore_2;
+				L8:	sinc 4 1;
+					goto L4;
+				L9:	goto L2;
+				L10:	sspush 256;
+					newarray 11;
+					astore 4;
+				L11:	getfield_a_this 4;		// reference driver_card/InfoApplet.aesCipher
+					aload_3;
+					sconst_0;
+					sspush 256;
+					aload 4;
+					sconst_0;
+					invokevirtual 50;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+					pop;
+					aload 4;
+					areturn;
+		}
+
+		.method private decrypt([B)[B {
+			.stack 6;
+			.locals 1;
+
+				L0:	getfield_a_this 4;		// reference driver_card/InfoApplet.aesCipher
+					getfield_a_this 5;		// reference driver_card/InfoApplet.aesKey
+					sconst_1;
+					invokevirtual 49;		// javacardx/crypto/Cipher.init(Ljavacard/security/Key;B)V
+					sspush 256;
+					newarray 11;
+					astore_2;
+				L1:	getfield_a_this 4;		// reference driver_card/InfoApplet.aesCipher
+					aload_1;
+					sconst_0;
+					sspush 256;
+					aload_2;
+					sconst_0;
+					invokevirtual 50;		// javacardx/crypto/Cipher.doFinal([BSS[BS)S
+					pop;
+					aload_2;
+					areturn;
+		}
+
+	}
+
+	.class public PinApplet 4 extends 1.3 {		// extends javacard/framework/Applet
+
+		.shareable;
+
+		.fields {
+			private byte[] arrayKeyAES 0;		// [B
+			private 3.11 mDig 1;		// Ljavacard/security/MessageDigest;
+			private static 1.9 pin;		// Ljavacard/framework/OwnerPIN;
+		}
+
+		.publicMethodTable 4 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+			getHashPin()[B;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.implementedInterfaceInfoTable { 
+			.interface INFO_CONSTANTS { 
+			}
+
+			.interface 1.2 { 		// javacard/framework/Shareable
+			}
+
+			.interface PinInterface { 
+				8;		// getHashPin()[B
+			}
+
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 51;		// driver_card/PinApplet
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 52;		// driver_card/PinApplet.<init>([BSB)V
+					pop;
+					return;
+		}
+
+		.method private <init>([BSB)V {
+			.stack 4;
+			.locals 1;
+
+				L0:	aload_0;
+					invokespecial 25;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					sconst_2;
+					sconst_1;
+					invokestatic 53;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
+					putfield_a 11;		// reference driver_card/PinApplet.mDig
+					aload_1;
+					sload_2;
+					baload;
+					sstore 4;
+				L1:	sload 4;
+					ifne L3;
+				L2:	aload_0;
+					invokevirtual 55;		// javacard/framework/Applet.register()V
+					goto L4;
+				L3:	aload_0;
+					aload_1;
+					sload_2;
+					sconst_1;
+					sadd;
+					sload 4;
+					invokevirtual 56;		// javacard/framework/Applet.register([BSB)V
+				L4:	getstatic_a 57;		// reference driver_card/AUTH_CONSTANTS.DEAULT_PIN_CODE
+					invokestatic 58;		// driver_card/PinApplet.initPIN([B)V
+					aload_0;
+					bspush 16;
+					sconst_1;
+					invokestatic 59;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 12;		// reference driver_card/PinApplet.arrayKeyAES
+					aload_0;
+					aload_0;
+					getstatic_a 57;		// reference driver_card/AUTH_CONSTANTS.DEAULT_PIN_CODE
+					invokespecial 61;		// driver_card/PinApplet.hashMD5Message([B)[B
+					putfield_a 12;		// reference driver_card/PinApplet.arrayKeyAES
+					return;
+		}
+
+		.method public select()Z 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sconst_1;
+					sreturn;
+		}
+
+		.method public deselect()V 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					invokevirtual 63;		// javacard/framework/OwnerPIN.reset()V
+					return;
+		}
+
+		.method public getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable; 5 {
+			.stack 1;
+			.locals 0;
+
+			.descriptor	Ljavacard/framework/AID;	1.6;
+			.descriptor	Ljavacard/framework/Shareable;	1.2;
+
+				L0:	aload_0;
+					areturn;
+		}
+
+		.method public getHashPin()[B 8 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 12;		// reference driver_card/PinApplet.arrayKeyAES
+					areturn;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_0;
+					invokevirtual 64;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_0;
+					baload;
+					ifne L6;
+				L4:	aload_2;
+					sconst_1;
+					baload;
+					bspush -92;
+					if_scmpne L6;
+				L5:	return;
+				L6:	aload_2;
+					sconst_0;
+					baload;
+					bspush -80;
+					if_scmpeq L8;
+				L7:	sspush 28160;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_2;
+					sconst_2;
+					baload;
+					bspush 99;
+					if_scmpeq L10;
+				L9:	sspush 27392;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L10:	aload_2;
+					sconst_1;
+					baload;
+					slookupswitch L14 3 17 L11 21 L13 22 L12;
+				L11:	aload_0;
+					aload_1;
+					invokespecial 65;		// driver_card/PinApplet.updatePIN(Ljavacard/framework/APDU;)V
+					return;
+				L12:	aload_0;
+					aload_1;
+					invokespecial 66;		// driver_card/PinApplet.verify(Ljavacard/framework/APDU;)V
+					return;
+				L13:	aload_0;
+					invokespecial 67;		// driver_card/PinApplet.resetAndUnblock()V
+					return;
+				L14:	sspush 27904;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+					return;
+		}
+
+		.method private static initPIN([B)V {
+			.stack 4;
+			.locals 0;
+
+				L0:	aload_0;
+					arraylength;
+					s2b;
+					bspush 6;
+					if_scmpeq L2;
+				L1:	sspush 25363;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	new 68;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_5;
+					bspush 6;
+					invokespecial 69;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putstatic_a 62;		// reference driver_card/PinApplet.pin
+					getstatic_a 62;		// reference driver_card/PinApplet.pin
+					aload_0;
+					sconst_0;
+					aload_0;
+					arraylength;
+					s2b;
+					invokevirtual 70;		// javacard/framework/OwnerPIN.update([BSB)V
+					return;
+		}
+
+		.method private updatePIN(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_2;
+				L1:	sload_2;
+					bspush 12;
+					if_scmpeq L3;
+				L2:	sspush 25363;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L3:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_3;
+				L4:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					aload_3;
+					sconst_5;
+					bspush 6;
+					invokevirtual 71;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L6;
+				L5:	sspush 25362;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	bspush 6;
+					newarray 11;
+					astore 4;
+				L7:	aload_3;
+					bspush 11;
+					aload 4;
+					sconst_0;
+					bspush 6;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getstatic_a 62;		// reference driver_card/PinApplet.pin
+					aload 4;
+					sconst_0;
+					aload 4;
+					arraylength;
+					s2b;
+					invokevirtual 70;		// javacard/framework/OwnerPIN.update([BSB)V
+					invokestatic 72;		// javacard/framework/JCSystem.beginTransaction()V
+					aload_0;
+					aload_0;
+					aload 4;
+					invokespecial 61;		// driver_card/PinApplet.hashMD5Message([B)[B
+					putfield_a 12;		// reference driver_card/PinApplet.arrayKeyAES
+					invokestatic 73;		// javacard/framework/JCSystem.commitTransaction()V
+					return;
+		}
+
+		.method private verify(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+				L2:	sload_3;
+					bspush 6;
+					if_scmpeq L4;
+				L3:	sspush 25363;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					invokevirtual 71;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L8;
+				L5:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					invokevirtual 74;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+					ifne L7;
+				L6:	sspush 25364;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L7:	sspush 25362;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	return;
+		}
+
+		.method private checkValidatePIN()V {
+			.stack 1;
+			.locals 0;
+
+				L0:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					invokevirtual 75;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L4;
+				L1:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					invokevirtual 74;		// javacard/framework/OwnerPIN.getTriesRemaining()B
+					ifne L3;
+				L2:	sspush 25364;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L3:	sspush 25361;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	return;
+		}
+
+		.method private resetAndUnblock()V {
+			.stack 1;
+			.locals 0;
+
+				L0:	getstatic_a 62;		// reference driver_card/PinApplet.pin
+					invokevirtual 76;		// javacard/framework/OwnerPIN.resetAndUnblock()V
+					return;
+		}
+
+		.method private hashMD5Message([B)[B {
+			.stack 6;
+			.locals 1;
+
+				L0:	bspush 16;
+					newarray 11;
+					astore_2;
+				L1:	getfield_a_this 11;		// reference driver_card/PinApplet.mDig
+					invokevirtual 77;		// javacard/security/MessageDigest.reset()V
+					getfield_a_this 11;		// reference driver_card/PinApplet.mDig
+					aload_1;
+					sconst_0;
+					aload_1;
+					arraylength;
+					aload_2;
+					sconst_0;
+					invokevirtual 78;		// javacard/security/MessageDigest.doFinal([BSS[BS)S
+					pop;
+					aload_2;
+					areturn;
+		}
+
+	}
+
+	.class public AUTH_CONSTANTS 5 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			static final byte AUTH = 99;		// B
+			static final byte[] DEAULT_PIN_CODE = {1,2,3,4,5,6};		// [B
+			static final byte PIN_TRY_LIMIT = 5;		// B
+			static final byte MAX_PIN_SIZE = 6;		// B
+			static final short SW_VERIFICATION_FAILED = 25362;		// S
+			static final short SW_PIN_VERIFICATION_REQUIRED = 25361;		// S
+			static final short SW_WRONG_PIN_LEN = 25363;		// S
+			static final short SW_OVER_TRY_TIMES = 25364;		// S
+		}
+
+		.publicMethodTable 1 {
+			equals(Ljava/lang/Object;)Z;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 54;		// java/lang/Object.<init>()V
+					return;
+		}
+
+	}
+
+	.class public RSAApplet 6 extends 1.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private 3.8 rsaPrivKey 0;		// Ljavacard/security/RSAPrivateKey;
+			private 3.9 rsaPubKey 1;		// Ljavacard/security/RSAPublicKey;
+			private 3.15 rsaSig 2;		// Ljavacard/security/Signature;
+			private short sigLen 3;		// S
+			private static final byte INS_SIGN = 0;		// B
+			private static final byte INS_VERIFY = 1;		// B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 79;		// driver_card/RSAApplet
+					dup;
+					invokespecial 80;		// driver_card/RSAApplet.<init>()V
+					aload_0;
+					sload_1;
+					sconst_1;
+					sadd;
+					aload_0;
+					sload_1;
+					baload;
+					invokevirtual 81;		// javacard/framework/Applet.register([BSB)V
+					return;
+		}
+
+		.method private <init>()V {
+			.stack 5;
+			.locals 1;
+
+				L0:	aload_0;
+					invokespecial 25;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					sspush 128;
+					putfield_s 13;		// short driver_card/RSAApplet.sigLen
+					aload_0;
+					bspush 10;
+					sconst_0;
+					invokestatic 83;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 14;		// reference driver_card/RSAApplet.rsaSig
+					aload_0;
+					sconst_5;
+					bspush 8;
+					getfield_s_this 13;		// short driver_card/RSAApplet.sigLen
+					smul;
+					sconst_0;
+					invokestatic 60;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 85;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					putfield_a 15;		// reference driver_card/RSAApplet.rsaPrivKey
+					aload_0;
+					sconst_4;
+					bspush 8;
+					getfield_s_this 13;		// short driver_card/RSAApplet.sigLen
+					smul;
+					sconst_0;
+					invokestatic 60;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 87;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					putfield_a 16;		// reference driver_card/RSAApplet.rsaPubKey
+					new 89;		// javacard/security/KeyPair
+					dup;
+					sconst_1;
+					bspush 8;
+					getfield_s_this 13;		// short driver_card/RSAApplet.sigLen
+					smul;
+					invokespecial 90;		// javacard/security/KeyPair.<init>(BS)V
+					astore_1;
+				L1:	aload_1;
+					invokevirtual 91;		// javacard/security/KeyPair.genKeyPair()V
+					aload_0;
+					aload_1;
+					invokevirtual 92;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+					checkcast 0 85;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					putfield_a 15;		// reference driver_card/RSAApplet.rsaPrivKey
+					aload_0;
+					aload_1;
+					invokevirtual 93;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+					checkcast 0 87;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					putfield_a 16;		// reference driver_card/RSAApplet.rsaPubKey
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_0;
+					invokevirtual 94;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_1;
+					baload;
+					stableswitch L7 0 2 L4 L5 L6;
+				L4:	aload_0;
+					aload_1;
+					invokespecial 95;		// driver_card/RSAApplet.sendPublicModulus(Ljavacard/framework/APDU;)V
+					goto L8;
+				L5:	aload_0;
+					aload_1;
+					invokespecial 96;		// driver_card/RSAApplet.sendPublicExponent(Ljavacard/framework/APDU;)V
+					goto L8;
+				L6:	aload_0;
+					aload_1;
+					invokespecial 97;		// driver_card/RSAApplet.rsaSign(Ljavacard/framework/APDU;)V
+					goto L8;
+				L7:	sspush 27904;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	return;
+		}
+
+		.method private sendPublicExponent(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	getfield_a_this 16;		// reference driver_card/RSAApplet.rsaPubKey
+					aload_2;
+					sconst_0;
+					invokeinterface 3 87 4;		// javacard/security/RSAPublicKey
+					sstore_3;
+				L2:	aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 46;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private sendPublicModulus(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	getfield_a_this 16;		// reference driver_card/RSAApplet.rsaPubKey
+					aload_2;
+					sconst_0;
+					invokeinterface 3 87 5;		// javacard/security/RSAPublicKey
+					sstore_3;
+				L2:	aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 46;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private rsaSign(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 4;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sstore_3;
+				L2:	sload_3;
+					newarray 11;
+					astore 4;
+				L3:	getfield_s_this 13;		// short driver_card/RSAApplet.sigLen
+					newarray 11;
+					astore 5;
+				L4:	aload_2;
+					sconst_5;
+					aload 4;
+					sconst_0;
+					sload_3;
+					invokestatic 37;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 14;		// reference driver_card/RSAApplet.rsaSig
+					getfield_a_this 15;		// reference driver_card/RSAApplet.rsaPrivKey
+					sconst_1;
+					invokevirtual 98;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+					getfield_a_this 14;		// reference driver_card/RSAApplet.rsaSig
+					aload 4;
+					sconst_0;
+					aload 4;
+					arraylength;
+					aload 5;
+					sconst_0;
+					invokevirtual 99;		// javacard/security/Signature.sign([BSS[BS)S
+					pop;
+					aload_1;
+					invokevirtual 43;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					getfield_s_this 13;		// short driver_card/RSAApplet.sigLen
+					invokevirtual 44;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					aload 5;
+					sconst_0;
+					getfield_s_this 13;		// short driver_card/RSAApplet.sigLen
+					invokevirtual 47;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					return;
+		}
+
+	}
+
+	.class public RSASample 7 extends 1.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private byte[] tempBuffer 0;		// [B
+			private byte[] flags 1;		// [B
+			private byte[] rsaPubKey 2;		// [B
+			private byte[] rsaPriKey 3;		// [B
+			private 2.1 rsaCipher 4;		// Ljavacardx/crypto/Cipher;
+			private 3.15 rsaSignature 5;		// Ljavacard/security/Signature;
+			private short rsaPubKeyLen 6;		// S
+			private short rsaPriKeyLen 7;		// S
+			private static final byte INS_GET_RSA_PUBKEY = 49;		// B
+			private static final byte INS_RSA_SIGN = 53;		// B
+			private static final short OFF_INS = 0;		// S
+			private static final short OFF_P1 = 1;		// S
+			private static final short OFF_P2 = 2;		// S
+			private static final short OFF_LEN = 3;		// S
+			private static final short FLAGS_SIZE = 5;		// S
+			private static final byte ID_N = 0;		// B
+			private static final byte ID_D = 1;		// B
+			private static final byte ID_P = 2;		// B
+			private static final byte ID_Q = 3;		// B
+			private static final byte ID_PQ = 4;		// B
+			private static final byte ID_DP1 = 5;		// B
+			private static final byte ID_DQ1 = 6;		// B
+			private static final short SW_REFERENCE_DATA_NOT_FOUND = 27272;		// S
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 3;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 25;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					sspush 256;
+					sconst_2;
+					invokestatic 59;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 17;		// reference driver_card/RSASample.tempBuffer
+					aload_0;
+					sconst_5;
+					sconst_2;
+					invokestatic 59;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 18;		// reference driver_card/RSASample.flags
+					aload_0;
+					sspush 288;
+					newarray 11;
+					putfield_a 19;		// reference driver_card/RSASample.rsaPubKey
+					aload_0;
+					sspush 640;
+					newarray 11;
+					putfield_a 20;		// reference driver_card/RSASample.rsaPriKey
+					aload_0;
+					sconst_0;
+					putfield_s 21;		// short driver_card/RSASample.rsaPubKeyLen
+					aload_0;
+					sconst_0;
+					putfield_s 22;		// short driver_card/RSASample.rsaPriKeyLen
+					aload_0;
+					aconst_null;
+					putfield_a 23;		// reference driver_card/RSASample.rsaSignature
+					aload_0;
+					bspush 12;
+					sconst_0;
+					invokestatic 28;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+					putfield_a 24;		// reference driver_card/RSASample.rsaCipher
+					invokestatic 108;		// javacard/framework/JCSystem.requestObjectDeletion()V
+					aload_0;
+					invokespecial 109;		// driver_card/RSASample.genRsaKeyPair()V
+					return;
+		}
+
+		.method public static install([BSB)V 1 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 110;		// driver_card/RSASample
+					dup;
+					invokespecial 111;		// driver_card/RSASample.<init>()V
+					aload_0;
+					sload_1;
+					sconst_1;
+					sadd;
+					aload_0;
+					sload_1;
+					baload;
+					invokevirtual 112;		// javacard/framework/Applet.register([BSB)V
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_0;
+					invokevirtual 113;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 106;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sstore_3;
+				L4:	aload_2;
+					sconst_1;
+					baload;
+					slookupswitch L7 2 49 L5 53 L6;
+				L5:	aload_0;
+					aload_1;
+					invokespecial 114;		// driver_card/RSASample.getRsaPubKey(Ljavacard/framework/APDU;)V
+					goto L8;
+				L6:	aload_0;
+					aload_1;
+					sload_3;
+					invokespecial 115;		// driver_card/RSASample.rsaSign(Ljavacard/framework/APDU;S)V
+					goto L8;
+				L7:	sspush 27904;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	return;
+		}
+
+		.method private getRsaPubKey(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	getfield_s_this 21;		// short driver_card/RSASample.rsaPubKeyLen
+					ifne L3;
+				L2:	sspush 27272;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L3:	getfield_s_this 21;		// short driver_card/RSASample.rsaPubKeyLen
+					sspush 160;
+					if_scmpgt L5;
+				L4:	sspush 128;
+					goto L6;
+				L5:	sspush 256;
+				L6:	sstore_3;
+				L7:	aload_2;
+					sconst_2;
+					baload;
+					slookupswitch L11 2 0 L8 1 L9;
+				L8:	getfield_a_this 19;		// reference driver_card/RSASample.rsaPubKey
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload_3;
+					invokestatic 116;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 46;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					goto L12;
+				L9:	getfield_s_this 21;		// short driver_card/RSASample.rsaPubKeyLen
+					sload_3;
+					ssub;
+					sstore 4;
+				L10:	getfield_a_this 19;		// reference driver_card/RSASample.rsaPubKey
+					sload_3;
+					aload_2;
+					sconst_0;
+					sload 4;
+					invokestatic 116;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 4;
+					invokevirtual 46;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					goto L12;
+				L11:	sspush 27270;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	return;
+		}
+
+		.method private getRsaPriKeyComponent(B[BS)S {
+			.stack 5;
+			.locals 3;
+
+				L0:	getfield_s_this 22;		// short driver_card/RSASample.rsaPriKeyLen
+					ifne L2;
+				L1:	sconst_0;
+					sreturn;
+				L2:	getfield_s_this 22;		// short driver_card/RSASample.rsaPriKeyLen
+					sspush 256;
+					if_scmpne L5;
+				L3:	sspush 128;
+					sstore 4;
+				L4:	goto L6;
+				L5:	sspush 256;
+					sstore 4;
+				L6:	sload_1;
+					stableswitch L16 0 6 L7 L10 L11 L12 L13 L14 L15;
+				L7:	sconst_0;
+					sstore 5;
+				L8:	sload 4;
+					sstore 6;
+				L9:	goto L17;
+				L10:	sload 4;
+					sstore 5;
+					sload 4;
+					sstore 6;
+					goto L17;
+				L11:	sconst_0;
+					sstore 5;
+					sload 4;
+					sconst_2;
+					sdiv;
+					sstore 6;
+					goto L17;
+				L12:	sload 4;
+					sconst_2;
+					sdiv;
+					sstore 5;
+					sload 4;
+					sconst_2;
+					sdiv;
+					sstore 6;
+					goto L17;
+				L13:	sload 4;
+					sstore 5;
+					sload 4;
+					sconst_2;
+					sdiv;
+					sstore 6;
+					goto L17;
+				L14:	sload 4;
+					sconst_2;
+					sdiv;
+					sconst_3;
+					smul;
+					sstore 5;
+					sload 4;
+					sconst_2;
+					sdiv;
+					sstore 6;
+					goto L17;
+				L15:	sload 4;
+					sconst_2;
+					smul;
+					sstore 5;
+					sload 4;
+					sconst_2;
+					sdiv;
+					sstore 6;
+					goto L17;
+				L16:	sconst_0;
+					sreturn;
+				L17:	getfield_a_this 20;		// reference driver_card/RSASample.rsaPriKey
+					sload 5;
+					aload_2;
+					sload_3;
+					sload 6;
+					invokestatic 116;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					sload 6;
+					sreturn;
+		}
+
+		.method private genRsaKeyPair()V {
+			.stack 4;
+			.locals 7;
+
+				L0:	sspush 1024;
+					sstore_1;
+				L1:	sconst_1;
+					sstore_2;
+				L2:	new 89;		// javacard/security/KeyPair
+					dup;
+					sload_2;
+					sload_1;
+					invokespecial 90;		// javacard/security/KeyPair.<init>(BS)V
+					astore_3;
+				L3:	aload_3;
+					invokevirtual 91;		// javacard/security/KeyPair.genKeyPair()V
+					invokestatic 72;		// javacard/framework/JCSystem.beginTransaction()V
+					aload_0;
+					sconst_0;
+					putfield_s 21;		// short driver_card/RSASample.rsaPubKeyLen
+					aload_0;
+					sconst_0;
+					putfield_s 22;		// short driver_card/RSASample.rsaPriKeyLen
+					invokestatic 73;		// javacard/framework/JCSystem.commitTransaction()V
+					aload_3;
+					invokevirtual 93;		// javacard/security/KeyPair.getPublic()Ljavacard/security/PublicKey;
+					checkcast 0 87;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					astore 4;
+				L4:	sconst_0;
+					sstore 5;
+				L5:	sload 5;
+					aload 4;
+					getfield_a_this 19;		// reference driver_card/RSASample.rsaPubKey
+					sload 5;
+					invokeinterface 3 87 5;		// javacard/security/RSAPublicKey
+					sadd;
+					sstore 5;
+					sload 5;
+					aload 4;
+					getfield_a_this 19;		// reference driver_card/RSASample.rsaPubKey
+					sload 5;
+					invokeinterface 3 87 4;		// javacard/security/RSAPublicKey
+					sadd;
+					sstore 5;
+					sconst_0;
+					sstore 6;
+				L6:	aload_3;
+					invokevirtual 92;		// javacard/security/KeyPair.getPrivate()Ljavacard/security/PrivateKey;
+					checkcast 0 85;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					astore 7;
+				L7:	sload 6;
+					aload 7;
+					getfield_a_this 20;		// reference driver_card/RSASample.rsaPriKey
+					sload 6;
+					invokeinterface 3 85 5;		// javacard/security/RSAPrivateKey
+					sadd;
+					sstore 6;
+					sload 6;
+					aload 7;
+					getfield_a_this 20;		// reference driver_card/RSASample.rsaPriKey
+					sload 6;
+					invokeinterface 3 85 4;		// javacard/security/RSAPrivateKey
+					sadd;
+					sstore 6;
+					invokestatic 72;		// javacard/framework/JCSystem.beginTransaction()V
+					aload_0;
+					sload 5;
+					putfield_s 21;		// short driver_card/RSASample.rsaPubKeyLen
+					aload_0;
+					sload 6;
+					putfield_s 22;		// short driver_card/RSASample.rsaPriKeyLen
+					invokestatic 73;		// javacard/framework/JCSystem.commitTransaction()V
+					invokestatic 108;		// javacard/framework/JCSystem.requestObjectDeletion()V
+					return;
+		}
+
+		.method private rsaSign(Ljavacard/framework/APDU;S)V {
+			.stack 6;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 105;		// javacard/framework/APDU.getBuffer()[B
+					astore_3;
+				L1:	getfield_s_this 22;		// short driver_card/RSASample.rsaPriKeyLen
+					ifne L3;
+				L2:	sspush 27013;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L3:	aload_3;
+					sconst_2;
+					baload;
+					sspush 128;
+					sand;
+					ifeq L5;
+				L4:	sconst_1;
+					goto L6;
+				L5:	sconst_0;
+				L6:	sstore 4;
+				L7:	sconst_0;
+					sstore 5;
+				L8:	aload_3;
+					sconst_3;
+					baload;
+					ifne L13;
+				L9:	sconst_5;
+					getfield_s_this 22;		// short driver_card/RSASample.rsaPriKeyLen
+					sconst_2;
+					sdiv;
+					bspush 8;
+					smul;
+					sconst_0;
+					invokestatic 60;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					astore 6;
+				L10:	aload_0;
+					sconst_0;
+					getfield_a_this 17;		// reference driver_card/RSASample.tempBuffer
+					sconst_0;
+					invokespecial 117;		// driver_card/RSASample.getRsaPriKeyComponent(B[BS)S
+					sstore 7;
+				L11:	aload 6;
+					checkcast 0 85;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					getfield_a_this 17;		// reference driver_card/RSASample.tempBuffer
+					sconst_0;
+					sload 7;
+					invokeinterface 4 85 7;		// javacard/security/RSAPrivateKey
+					aload_0;
+					sconst_1;
+					getfield_a_this 17;		// reference driver_card/RSASample.tempBuffer
+					sconst_0;
+					invokespecial 117;		// driver_card/RSASample.getRsaPriKeyComponent(B[BS)S
+					sstore 7;
+					aload 6;
+					checkcast 0 85;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					getfield_a_this 17;		// reference driver_card/RSASample.tempBuffer
+					sconst_0;
+					sload 7;
+					invokeinterface 4 85 6;		// javacard/security/RSAPrivateKey
+					aload_0;
+					bspush 10;
+					sconst_0;
+					invokestatic 83;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 23;		// reference driver_card/RSASample.rsaSignature
+					invokestatic 108;		// javacard/framework/JCSystem.requestObjectDeletion()V
+					getfield_a_this 23;		// reference driver_card/RSASample.rsaSignature
+					aload 6;
+					sconst_1;
+					invokevirtual 98;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+					aload_3;
+					sconst_1;
+					getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_0;
+					sconst_3;
+					invokestatic 116;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					invokestatic 108;		// javacard/framework/JCSystem.requestObjectDeletion()V
+				L12:	goto L18;
+				L13:	getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_0;
+					baload;
+					aload_3;
+					sconst_1;
+					baload;
+					if_scmpne L16;
+				L14:	getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_1;
+					baload;
+					bspush 127;
+					sand;
+					aload_3;
+					sconst_2;
+					baload;
+					bspush 127;
+					sand;
+					if_scmpne L16;
+				L15:	getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_2;
+					baload;
+					sspush 255;
+					sand;
+					aload_3;
+					sconst_3;
+					baload;
+					sspush 255;
+					sand;
+					sconst_1;
+					ssub;
+					if_scmpeq L17;
+				L16:	getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_0;
+					getfield_a_this 18;		// reference driver_card/RSASample.flags
+					arraylength;
+					sconst_0;
+					invokestatic 103;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					sspush 27270;
+					invokestatic 48;		// javacard/framework/ISOException.throwIt(S)V
+				L17:	getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_2;
+					dup2;
+					baload;
+					sconst_1;
+					sadd;
+					s2b;
+					bastore;
+				L18:	sload 4;
+					ifeq L20;
+				L19:	getfield_a_this 23;		// reference driver_card/RSASample.rsaSignature
+					aload_3;
+					sconst_5;
+					sload_2;
+					invokevirtual 118;		// javacard/security/Signature.update([BSS)V
+					goto L22;
+				L20:	getfield_a_this 23;		// reference driver_card/RSASample.rsaSignature
+					aload_3;
+					sconst_5;
+					sload_2;
+					aload_3;
+					sconst_0;
+					invokevirtual 99;		// javacard/security/Signature.sign([BSS[BS)S
+					sstore 6;
+				L21:	getfield_a_this 18;		// reference driver_card/RSASample.flags
+					sconst_0;
+					getfield_a_this 18;		// reference driver_card/RSASample.flags
+					arraylength;
+					sconst_0;
+					invokestatic 103;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 6;
+					invokevirtual 46;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+				L22:	return;
+		}
+
+	}
+
+}
