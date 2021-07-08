@@ -166,7 +166,7 @@ public class LogFailureUI extends javax.swing.JFrame {
                                 mainUI.updateFailure(true);
                                 this.setVisible(false);
                             } else {
-                                showFailureDialog();
+                                JOptionPane.showMessageDialog(null, "Xác thực RSA thất bại");
                             }
                         } catch (CardException ex) {
                             Logger.getLogger(LogFailureUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -184,8 +184,7 @@ public class LogFailureUI extends javax.swing.JFrame {
 
     private boolean rsaAuthentication() {
         try {
-            PublicKey publicKeys = RSAAppletHelper.getInstance(
-                    HostAppHelper.getInstance().channel).getPublicKey();
+            PublicKey publicKeys = RSAData.getPublicKey();
             if (publicKeys == null) {
                 return false;
             }

@@ -53,7 +53,12 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
         tfGPLX.setText(person.getGplx());
         tfGPLX.setEditable(false);
         tfHoTen.setText(person.getHoTen());
-        tfNS.setText(person.getNgaySinh());
+        
+        String ngaysinh = person.getNgaySinh();
+        String[] arr = ngaysinh.split("/");
+        tfNS.setText(arr[0]);
+        tfThang.setText(arr[1]);
+        tfNam.setText(arr[2]);
         tfCMND.setText(person.getCmnd());
         cbHang.setSelectedItem(person.getPhuongTien());
     }
@@ -81,6 +86,10 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tfGPLX = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        label1 = new java.awt.Label();
+        tfThang = new javax.swing.JTextField();
+        label2 = new java.awt.Label();
+        tfNam = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +111,11 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
         jLabel3.setText("Ngày sinh:");
 
         tfNS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tfNS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNSActionPerformed(evt);
+            }
+        });
 
         tfHoTen.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -112,6 +126,11 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
 
         cbHang.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         cbHang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D", "E", "F" }));
+        cbHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbHangActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Hạng:");
@@ -120,6 +139,26 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Họ tên:");
+
+        label1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        label1.setText("/");
+
+        tfThang.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tfThang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfThangActionPerformed(evt);
+            }
+        });
+
+        label2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        label2.setText("/");
+
+        tfNam.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tfNam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNamActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,13 +172,22 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4))
-                .addGap(18, 55, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfCMND)
-                    .addComponent(tfNS)
-                    .addComponent(tfHoTen)
-                    .addComponent(tfGPLX)
-                    .addComponent(cbHang, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tfNS, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfThang, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(tfNam, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
+                    .addComponent(tfGPLX, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfHoTen, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfCMND, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cbHang, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,10 +202,15 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
                     .addComponent(tfHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfNS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfNS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3))
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfThang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfCMND, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -230,7 +283,7 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
             try {
                 Person person = new Person(
                         tfHoTen.getText().trim(),
-                        tfNS.getText().trim(),
+                        tfNS.getText().trim()+"/"+tfThang.getText().trim()+"/"+tfNam.getText().trim(),
                         tfCMND.getText().trim(),
                         tfGPLX.getText().trim(),
                         cbHang.getSelectedItem().toString().trim()
@@ -249,9 +302,27 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnOKActionPerformed
 
+    private void tfThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfThangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfThangActionPerformed
+
+    private void tfNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNamActionPerformed
+
+    private void tfNSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNSActionPerformed
+
+    private void cbHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbHangActionPerformed
+
     private boolean isNullData() {
         return tfHoTen.getText().trim().isEmpty()
                 || tfNS.getText().trim().isEmpty()
+                || tfThang.getText().trim().isEmpty()
+                || tfNam.getText().trim().isEmpty()
                 || tfGPLX.getText().trim().isEmpty()
                 || tfCMND.getText().trim().isEmpty();
     }
@@ -266,10 +337,14 @@ public class UpdateInfomationUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private java.awt.Label label1;
+    private java.awt.Label label2;
     private javax.swing.JTextField tfCMND;
     private javax.swing.JTextField tfGPLX;
     private javax.swing.JTextField tfHoTen;
     private javax.swing.JTextField tfNS;
+    private javax.swing.JTextField tfNam;
+    private javax.swing.JTextField tfThang;
     private javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,12 +7,11 @@ package drivercardhostapp.form;
 
 import drivercardhostapp.HostAppHelper;
 import drivercardhostapp.model.Person;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.smartcardio.CardException;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -30,6 +29,7 @@ public final class MainUI extends javax.swing.JFrame {
     private Person person;
 
     public MainUI() {
+        super("MÔ PHỎNG GIẤY PHÉP LÁI XE");
         initComponents();
         getInfomation();
         getImage();
@@ -47,7 +47,7 @@ public final class MainUI extends javax.swing.JFrame {
         }
     }
 
-    private void getImage() {
+    public void getImage() {
         BufferedImage imageBuf = HostAppHelper.getInstance().downloadImage();
         if (imageBuf != null) {
             image.setIcon(new ImageIcon(imageBuf));
@@ -95,8 +95,8 @@ public final class MainUI extends javax.swing.JFrame {
             btnInit.setEnabled(false);
             btnLogError.setEnabled(false);
             btnSelectImage.setEnabled(false);
-            btnLogout.setEnabled(false);
             btnBlock.setEnabled(false);
+            txtCardState.setForeground(Color.RED);
             txtCardState.setText("Đã bị khóa");
         } else {
             btnUnlock.setEnabled(false);
@@ -104,8 +104,8 @@ public final class MainUI extends javax.swing.JFrame {
             btnInit.setEnabled(true);
             btnLogError.setEnabled(true);
             btnSelectImage.setEnabled(true);
-            btnLogout.setEnabled(true);
             btnBlock.setEnabled(true);
+            txtCardState.setForeground(Color.GREEN);
             txtCardState.setText("Đang hoạt động");
         }
     }
@@ -147,7 +147,6 @@ public final class MainUI extends javax.swing.JFrame {
         btnBlock = new javax.swing.JButton();
         btnUnlock = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jLabel81 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel88 = new javax.swing.JLabel();
         txtHoTen = new javax.swing.JLabel();
@@ -166,15 +165,19 @@ public final class MainUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnSelectImage = new javax.swing.JButton();
         image = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel81 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnChangePIN.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnChangePIN.setBackground(new java.awt.Color(153, 102, 0));
         btnChangePIN.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnChangePIN.setForeground(new java.awt.Color(255, 255, 255));
         btnChangePIN.setText("ĐỔI MÃ PIN");
@@ -185,7 +188,7 @@ public final class MainUI extends javax.swing.JFrame {
             }
         });
 
-        btnInit.setBackground(new java.awt.Color(0, 153, 0));
+        btnInit.setBackground(new java.awt.Color(153, 102, 0));
         btnInit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnInit.setForeground(new java.awt.Color(255, 255, 255));
         btnInit.setText("CẬP NHẬT THÔNG TIN");
@@ -196,7 +199,7 @@ public final class MainUI extends javax.swing.JFrame {
             }
         });
 
-        btnLogError.setBackground(new java.awt.Color(0, 153, 0));
+        btnLogError.setBackground(new java.awt.Color(153, 102, 0));
         btnLogError.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLogError.setForeground(new java.awt.Color(255, 255, 255));
         btnLogError.setText("GHI LỖI");
@@ -207,7 +210,7 @@ public final class MainUI extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(153, 153, 0));
+        btnLogout.setBackground(new java.awt.Color(204, 0, 51));
         btnLogout.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("ĐĂNG XUẤT");
@@ -218,7 +221,7 @@ public final class MainUI extends javax.swing.JFrame {
             }
         });
 
-        btnBlock.setBackground(new java.awt.Color(0, 153, 0));
+        btnBlock.setBackground(new java.awt.Color(153, 102, 0));
         btnBlock.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnBlock.setForeground(new java.awt.Color(255, 255, 255));
         btnBlock.setText("KHÓA THẺ");
@@ -229,7 +232,7 @@ public final class MainUI extends javax.swing.JFrame {
             }
         });
 
-        btnUnlock.setBackground(new java.awt.Color(0, 153, 0));
+        btnUnlock.setBackground(new java.awt.Color(153, 102, 0));
         btnUnlock.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnUnlock.setForeground(new java.awt.Color(255, 255, 255));
         btnUnlock.setText("MỞ KHÓA THẺ");
@@ -277,11 +280,7 @@ public final class MainUI extends javax.swing.JFrame {
         );
 
         jPanel5.setBackground(new java.awt.Color(243, 209, 137));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel81.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel81.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel81.setText("GIẤY PHÉP LÁI XE");
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel3.setBackground(new java.awt.Color(243, 209, 137));
 
@@ -431,9 +430,30 @@ public final class MainUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSelectImage)
+                .addContainerGap())
+        );
+
+        jLabel81.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel81.setText("GIẤY PHÉP LÁI XE");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -447,16 +467,12 @@ public final class MainUI extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(192, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(261, 261, 261))
+            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -478,11 +494,11 @@ public final class MainUI extends javax.swing.JFrame {
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -544,21 +560,18 @@ public final class MainUI extends javax.swing.JFrame {
         jfc.setFileFilter(new JPEGImageFileFilter());
         jfc.showOpenDialog(this);
         File file = jfc.getSelectedFile();
-        if (file.length() > 10000) {
-            JOptionPane.showMessageDialog(null, "Kích thước quá lớn. Vui lòng chọn ảnh khác!");
-            return;
-        }
-        if (HostAppHelper.getInstance().uploadImage(file, "jpg")) {
-            try {
-                JOptionPane.showMessageDialog(null, "Cập nhật ảnh thành công!");
-                BufferedImage myPicture = ImageIO.read(file);
-                image.setIcon(new ImageIcon(myPicture));
-            } catch (IOException ex) {
-                Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+
+        if (file != null) {
+            if (file.length() > 10000) {
+                JOptionPane.showMessageDialog(null, "Kích thước quá lớn. Vui lòng chọn ảnh khác!");
+                return;
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi.");
+            ReviewAvatarUI avatarUI = new ReviewAvatarUI(file, this);
+            avatarUI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            avatarUI.setLocationRelativeTo(null);
+            avatarUI.setVisible(true);
         }
+
 
     }//GEN-LAST:event_btnSelectImageActionPerformed
 
@@ -615,10 +628,18 @@ public final class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogErrorActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        this.setVisible(false);
-        EnterPinGUI enterPinGUI = new EnterPinGUI();
-        enterPinGUI.setLocationRelativeTo(null);
-        enterPinGUI.setVisible(true);
+        int input = JOptionPane.showOptionDialog(
+                null,
+                "Đăng xuất thẻ?", "ĐĂNG XUẤT",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE, null, null, null);
+
+        if (input == JOptionPane.OK_OPTION) {
+            this.setVisible(false);
+            EnterPinGUI enterPinGUI = new EnterPinGUI();
+            enterPinGUI.setLocationRelativeTo(null);
+            enterPinGUI.setVisible(true);
+        }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
@@ -650,6 +671,7 @@ public final class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JLabel txtCMND;
     private javax.swing.JLabel txtCardState;

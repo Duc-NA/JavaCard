@@ -5,11 +5,7 @@
  */
 package drivercardhostapp;
 
-import drivercardhostapp.commons.utils.RSAData;
-import drivercardhostapp.commons.utils.RandomUtil;
 import drivercardhostapp.form.EnterPinGUI;
-import java.security.PublicKey;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.smartcardio.CardException;

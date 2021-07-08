@@ -24,6 +24,7 @@ public class EnterPinGUI extends javax.swing.JFrame {
      * Creates new form EnterPinGUI
      */
     public EnterPinGUI() {
+        super("XÁC THỰC PIN");
         initComponents();
     }
 

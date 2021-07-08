@@ -13,23 +13,15 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.SignatureException;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.crypto.Cipher;
 import java.security.spec.RSAPublicKeySpec;
-import java.util.Base64.Encoder;
-import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -40,7 +32,7 @@ public class RSAData {
     public static void savePublicKey(PublicKey publicKey) {
         FileOutputStream fos = null;
         try {
-            File publicKeyFile = createKeyFile(new File("publicKey.rsa"));
+            File publicKeyFile = createKeyFile(new File("publicKey.txt"));
             // Lưu Public Key
             fos = new FileOutputStream(publicKeyFile);
             fos.write(publicKey.getEncoded());
@@ -62,7 +54,7 @@ public class RSAData {
         FileInputStream fis = null;
         try {
             // Đọc file chứa private key
-            fis = new FileInputStream("publicKey.rsa");
+            fis = new FileInputStream("publicKey.txt");
             byte[] b = new byte[fis.available()];
             fis.read(b);
             fis.close();
